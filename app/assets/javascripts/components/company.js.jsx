@@ -3,9 +3,9 @@ var Company = React.createClass({
         return (
             <div>
               <ul>
-                <li>Company 1</li>
-                <li>Company 2</li>
-                <li>Company 3</li>
+                <div id="company-row"><li>Company 1</li></div>
+                <div id="company-row"><li>Company 2</li></div>
+                <div id="company-row"><li>Company 3</li></div>
               </ul>
             </div>
         )
