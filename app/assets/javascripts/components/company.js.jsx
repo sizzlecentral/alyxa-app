@@ -3,9 +3,8 @@ var Company = React.createClass({
   render() {
 
     var listed = []
-    var companyList = this.props.companies
-    var obj = JSON.parse(companyList);
-    for (i in obj) {
+    var companyList = this.props.companies.split('{"id":')
+    for (i in companyList) {
       listed.push(companyList[i]);
     }
 
@@ -15,6 +14,7 @@ var Company = React.createClass({
             return <div id='company-row' key={index}>{company}</div>
           })
         }
+        {companyList}
       </div>
     )
   }

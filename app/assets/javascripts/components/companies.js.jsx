@@ -1,14 +1,14 @@
 var Companies = React.createClass({
 
-  getInitialState() {
-    return {
-      companies: this.props.companies
-    };
-  },
-
   getDefaultProps() {
     return {
       companies: []
+    };
+  },
+
+  getInitialState() {
+    return {
+      companies: this.props.companies
     };
   },
 
