@@ -2,7 +2,7 @@ var Company = React.createClass({
 
   render() {
 
-    var companies = ['Hubba', 'Shopify', 'Wealthsimple']
+    var companies = companies
     var companyList = companies.map(function(name) {
       return <div id="company-row">{name}</div>;
     })
