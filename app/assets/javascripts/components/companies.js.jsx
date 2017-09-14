@@ -23,7 +23,7 @@ var Companies = React.createClass({
   </div>
 
     <div id='company-list'>
-      {this.state.companies}
+      <Company companies={this.state.companies} />
     </div>
 
         <div id='footer'>
