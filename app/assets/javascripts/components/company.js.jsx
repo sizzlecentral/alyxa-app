@@ -2,11 +2,19 @@ var Company = React.createClass({
 
   render() {
 
+    var listed = []
     var companyList = this.props.companies
+    var obj = JSON.parse(companyList);
+    for (i in obj) {
+      listed.push(companyList[i]);
+    }
 
     return (
       <div>
-        {companyList}
+        {listed.map(function(company, index) {
+            return <div id='company-row' key={index}>{company}</div>
+          })
+        }
       </div>
     )
   }
