@@ -14,6 +14,12 @@ var Companies = React.createClass({
 
   render() {
 
+  var listed = []
+  var companyList = this.state.companies
+  for (i in companyList) {
+    listed.push(companyList[i]);
+  }
+
   return (
 
   <div>
@@ -23,7 +29,7 @@ var Companies = React.createClass({
   </div>
 
     <div id='company-list'>
-      <Company companies={this.state.companies} />
+      <Company companies={listed}  />
     </div>
 
         <div id='footer'>
