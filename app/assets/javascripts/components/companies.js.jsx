@@ -26,7 +26,7 @@ var Companies = React.createClass({
   </div>
 
     <div id='company-list'>
-      <Company companies={listed}  />
+      <Company companies={companyList}  />
     </div>
 
         <div id='footer'>

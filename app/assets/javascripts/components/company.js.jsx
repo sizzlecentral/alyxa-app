@@ -3,11 +3,15 @@ var Company = React.createClass({
   render() {
 
     var companyList = this.props.companies
-    console.log(typeof companyList)
+    console.log(companyList[0].company.name)
+
+    var listed = companyList.map(function(company, index){
+          return <div id='company-row' key={index}>{companyList[index].company.name}</div>;
+        })
 
     return (
       <div>
-        <div id='company-row'>{companyList}</div>
+        {listed}
       </div>
     )
   }
