@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.all.to_json
+    @companies = Company.all.as_json
   end
 
   def create

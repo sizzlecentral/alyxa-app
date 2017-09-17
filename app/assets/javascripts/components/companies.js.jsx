@@ -14,11 +14,8 @@ var Companies = React.createClass({
 
   render() {
 
-  var listed = []
   var companyList = this.state.companies
-  for (i in companyList) {
-    listed.push(companyList[i]);
-  }
+  var listed = JSON.stringify(companyList)
 
   return (
 
