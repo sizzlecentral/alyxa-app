@@ -12,6 +12,23 @@ var Companies = React.createClass({
     };
   },
 
+  addCompany(company) {
+    {/* push new record into companies array */}
+    {/* set state to modified companies array */}
+  },
+
+  deleteCompany(company) {
+    {/* find index of company to be deleted in companies array */}
+    {/* remove company from companies array */}
+    {/* set state to modified companies array */}
+  },
+
+  updateCompany(company, info) {
+    {/* find index of company to be updated in companies array */}
+    {/* find and replace the target data for the company */}
+    {/* set state to modified companies array */}
+  },
+
   render() {
 
   var companyList = this.state.companies
@@ -19,21 +36,22 @@ var Companies = React.createClass({
 
   return (
 
-  <div>
+      <div>
 
-  <div id='header'>
-    <Header />
-  </div>
+        <div id='header'>
+          <Header />
+        </div>
 
-    <div id='company-list'>
-      <Company companies={companyList}  />
-    </div>
+        <div id='company-list'>
+          <Company companies={companyList}  />
+        </div>
 
         <div id='footer'>
           <Footer />
         </div>
 
       </div>
+
     )
   }
 });
