@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: 'Roboto', sans-serif;
 }
@@ -8,6 +12,11 @@ a {
 
 a:hover {
   color: #BF360C;
+}
+
+input, button {
+  width: 100%;
+  padding: 1rem;
 }
 
 #company-list {
@@ -48,4 +57,11 @@ a:hover {
 
 #company-name {
   margin-left: .1rem;
+}
+
+#new-company-form {
+  clear: both;
+  overflow: hidden;
+  padding: 2.5rem;
+  margin: auto;
 }

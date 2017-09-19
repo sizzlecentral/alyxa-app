@@ -14,7 +14,9 @@ var Companies = React.createClass({
 
   addCompany(company) {
     {/* push new record into companies array */}
+    this.state.companies.push(company)
     {/* set state to modified companies array */}
+    this.setState({companies: this.state.companies});
   },
 
   deleteCompany(company) {
@@ -43,6 +45,7 @@ var Companies = React.createClass({
         </div>
 
         <div id='company-list'>
+          <NewCompany handleSubmit={this.handleSubmit}/>
           <Company companies={companyList}  />
         </div>
 
