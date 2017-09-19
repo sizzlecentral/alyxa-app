@@ -12,25 +12,6 @@ var Companies = React.createClass({
     };
   },
 
-  addCompany(company) {
-    {/* push new record into companies array */}
-    this.state.companies.push(company)
-    {/* set state to modified companies array */}
-    this.setState({companies: this.state.companies});
-  },
-
-  deleteCompany(company) {
-    {/* find index of company to be deleted in companies array */}
-    {/* remove company from companies array */}
-    {/* set state to modified companies array */}
-  },
-
-  updateCompany(company, info) {
-    {/* find index of company to be updated in companies array */}
-    {/* find and replace the target data for the company */}
-    {/* set state to modified companies array */}
-  },
-
   render() {
 
   var companyList = this.state.companies
@@ -46,7 +27,7 @@ var Companies = React.createClass({
 
         <div id='company-list'>
           <NewCompany handleSubmit={this.handleSubmit}/>
-          <Company companies={companyList}  />
+          <Company companies={companyList} handleDelete={this.deleteCompany} onUpdate={this.updateCompany}  />
         </div>
 
         <div id='footer'>

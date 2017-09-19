@@ -1,11 +1,13 @@
 var NewCompany= React.createClass({
 
-    handleClick() {
+    addCompany() {
         var name    = this.refs.name.value;
         var url = this.refs.url.value;
         var image = this.refs.image.value;
 
         console.log('New company submitted.')
+
+        {/* Post request code goes here */}
 
     },
 
@@ -27,7 +29,7 @@ var NewCompany= React.createClass({
           </div>
           <br />
           <div>
-            <button onClick={this.handleClick}>Submit</button>
+            <button onClick={this.addCompany}>Submit</button>
           </div>
         </div>
       )

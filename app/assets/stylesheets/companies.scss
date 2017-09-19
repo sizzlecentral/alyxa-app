@@ -19,6 +19,11 @@ input, button {
   padding: 1rem;
 }
 
+button#delete, button#edit {
+  float: right;
+  width: 12%;
+}
+
 #company-list {
   width: 100%;
   max-width: 800px;
