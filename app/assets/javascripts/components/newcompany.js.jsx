@@ -2,10 +2,11 @@ var NewCompany= React.createClass({
 
   addCompany() {
     var company = {
-      name:         'Rad Company',
-      url:          'https://static.pexels.com/photos/34950/pexels-photo.jpg',
-      image:        'https://static.pexels.com/photos/34950/pexels-photo.jpg',
+      name:     this.refs.name.value,
+      url:      this.refs.url.value,
+      image:    this.refs.image.value,
     }
+
     $.ajax({
       url:      '/companies',
       type:     'POST',
@@ -15,7 +16,7 @@ var NewCompany= React.createClass({
         this.props.handleSubmit(company);
       },
       error: function (company) {
-      console.log(company);
+      console.log(typeof company);
       },
 
     });

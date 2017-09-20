@@ -7,12 +7,9 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(params[:company])
 
-    respond_to do |format|
-      if @company
-        format.html { redirect_to @company, notice: 'User was successfully created.' }
-      else
-        format.html { render action: "new" }
-      end
+    if @company.save
+
+    else
 
     end
 
