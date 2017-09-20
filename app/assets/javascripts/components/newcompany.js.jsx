@@ -11,10 +11,13 @@ var NewCompany= React.createClass({
       type:     'POST',
       dataType: 'json',
       data:      company,
-
       success: (company) => {
         this.props.handleSubmit(company);
-      }
+      },
+      error: function (company) {
+      console.log(company);
+      },
+
     });
   },
 
