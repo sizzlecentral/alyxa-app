@@ -12,6 +12,11 @@ var Companies = React.createClass({
     };
   },
 
+  handleSubmit(company) {
+    var newState = this.state.companies.push(company);
+    this.setState({ companies: newState })
+  },
+
   render() {
 
   var companyList = this.state.companies

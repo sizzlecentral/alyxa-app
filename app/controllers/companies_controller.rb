@@ -5,12 +5,15 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
+    @company = Company.new(params[:company])
 
-    if @company.save
-      render json: @company
-    else
-      render json: @company.errors, status: :unprocessable_entity
+    respond_to do |format|
+      if @company
+        format.html { redirect_to @company, notice: 'User was successfully created.' }
+      else
+        format.html { render action: "new" }
+      end
+
     end
 
   end

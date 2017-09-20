@@ -1,6 +1,21 @@
 var NewCompany= React.createClass({
 
   addCompany() {
+    var company = {
+      name:         'Rad Company',
+      url:          'https://static.pexels.com/photos/34950/pexels-photo.jpg',
+      image:        'https://static.pexels.com/photos/34950/pexels-photo.jpg',
+    }
+    $.ajax({
+      url:      '/companies',
+      type:     'POST',
+      dataType: 'json',
+      data:      company,
+
+      success: (company) => {
+        this.props.handleSubmit(company);
+      }
+    });
   },
 
   render() {
