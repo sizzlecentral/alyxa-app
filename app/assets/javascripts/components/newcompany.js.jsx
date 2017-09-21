@@ -1,48 +1,66 @@
 var NewCompany= React.createClass({
 
-  addCompany() {
-    var company = {
-      name:     this.refs.name.value,
-      url:      this.refs.url.value,
-      image:    this.refs.image.value,
+  getInitialState() {
+    return {
+      name:   "",
+      url:    "",
+      image:  "",
+    };
+  },
+
+  handleCompanySubmit(e) {
+
+    e.preventDefault();
+    var name = this.state.name.trim();
+    var url = this.state.url.trim();
+    var image = this.state.image.trim();
+    if (!name) {
+      return;
     }
 
-    $.ajax({
-      url:      '/companies',
-      type:     'POST',
-      dataType: 'json',
-      data:      company,
-      success: (company) => {
-        this.props.handleSubmit(company);
-      },
-      error: function (company) {
-      console.log(typeof company);
-      },
-
+    this.props.onCompanySubmit({
+      name: name,
+      url: url,
+      image: image
     });
+
+  },
+
+  setValue(field, event) {
+    var object = {};
+    object[field] = event.target.value;
+    this.setState(object);
   },
 
   render() {
 
     return (
-      <div id='new-company-form'>
+      <form id='new-company-form' onSubmit={this.handleCompanySubmit}>
         <h2>Add a new company:</h2>
-        <div>
-          <input ref='name' placeholder='Enter name of the company' />
-        </div>
+
+        <FormInput
+          value={this.state.name}
+          text="Enter the company name"
+        />
         <br />
-        <div>
-          <input ref='url' placeholder='Enter link to company website' />
-        </div>
+
+        <FormInput
+          value={this.state.url}
+          text="Link to the company url"
+        />
         <br />
-        <div>
-          <input ref='image' placeholder='Enter link to company image' />
-        </div>
+
+        <FormInput
+          value={this.state.image}
+          text="Link to the company logo"
+        />
         <br />
-        <div>
-          <button onClick={this.addCompany}>Submit</button>
-        </div>
-      </div>
+
+        <button type='submit' value='Submit'></button>
+
+      </form>
     )
+
   }
+
 });
