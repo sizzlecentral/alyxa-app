@@ -22,10 +22,8 @@ var Companies = React.createClass({
       dataType: 'json',
       type:     'POST',
       data:      company,
-      success(data) {
-        this.setState({
-          data: data
-        });
+      success: function(data) {
+        this.setState({data: data});
       }
     });
   },

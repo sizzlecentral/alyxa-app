@@ -41,22 +41,25 @@ var NewCompany= React.createClass({
         <FormInput
           value={this.state.name}
           text="Enter the company name"
+          onChange={this.setValue.bind(this, 'name')}
         />
         <br />
 
         <FormInput
           value={this.state.url}
           text="Link to the company url"
+          onChange={this.setValue.bind(this, 'url')}
         />
         <br />
 
         <FormInput
           value={this.state.image}
           text="Link to the company logo"
+          onChange={this.setValue.bind(this, 'image')}
         />
         <br />
 
-        <button type='submit' value='Submit'></button>
+        <button type='submit' value='Submit'>Submit</button>
 
       </form>
     )
