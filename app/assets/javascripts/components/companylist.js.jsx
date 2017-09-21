@@ -3,14 +3,16 @@ var CompanyList = React.createClass({
   render() {
 
     var data = this.props.data
-    var companyList = data.map(function(company) {
+    var companyList = data.map(function(company, index) {
       return (
-        <Company
-          key={company.id}
-          name={company.name}
-          url={company.url}
-          image={company.image}
-        />
+        <div id='company-row' key={index}>
+          <Company
+            key={data[index].company.id}
+            name={data[index].company.name}
+            url={data[index].company.url}
+            image={data[index].company.image}
+          />
+        </div>
       )
     });
 
@@ -22,34 +24,3 @@ var CompanyList = React.createClass({
 
   }
 });
-
-
-
-
-
-
-{/*
-
-    var companyList = json.map(function(company, index) {
-      return (
-        <div id='company-row' key={index}>
-          <a href={companyList[index].company.url} target='_blank'>
-            <div id='company-image'>
-              <img src={companyList[index].company.image} alt={companyList[index].company.name} height='75' width='75' />
-            </div>
-            <div id='company-name'>
-              {companyList[index].company.name}
-            </div>
-          </a>
-        </div>
-      );
-    });
-    return (
-      <div>
-        {companyList}
-      </div>
-    )
-  }
-});
-
-*/}

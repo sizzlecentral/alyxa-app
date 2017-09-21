@@ -1,19 +1,19 @@
 var Companies = React.createClass({
 
-  getInitialState() {
+  getDefaultProps() {
     return {
       data: []
     };
   },
 
-  loadCompanies() {
-    this.setState({
+  getInitialState() {
+    return {
       data: this.props.companies
-    });
+    }
   },
 
   componentDidMount() {
-    this.loadCompanies();
+    this.getInitialState();
   },
 
   handleCompanySubmit(company) {
