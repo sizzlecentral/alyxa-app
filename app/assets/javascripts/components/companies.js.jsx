@@ -1,20 +1,33 @@
 var Companies = React.createClass({
 
-  getDefaultProps() {
+  getInitialState() {
     return {
       companies: []
     };
   },
 
-  getInitialState() {
-    return {
+  loadCompanies() {
+    this.setState({
       companies: this.props.companies
-    };
+    });
   },
 
-  handleSubmit(company) {
-    var newState = this.state.companies.push(company);
-    this.setState({ companies: newState })
+  componentDidMount() {
+    this.loadCompanies();
+  },
+
+  handleCompanySubmit(company) {
+    $.ajax({
+      url:      '/companies',
+      dataType: 'json',
+      type:     'POST',
+      data:      company,
+      success(data) {
+        this.setState({
+          companies: data
+        });
+      }
+    });
   },
 
   render() {
