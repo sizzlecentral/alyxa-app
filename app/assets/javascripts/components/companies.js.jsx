@@ -2,13 +2,13 @@ var Companies = React.createClass({
 
   getInitialState() {
     return {
-      companies: []
+      data: []
     };
   },
 
   loadCompanies() {
     this.setState({
-      companies: this.props.companies
+      data: this.props.companies
     });
   },
 
@@ -24,19 +24,14 @@ var Companies = React.createClass({
       data:      company,
       success(data) {
         this.setState({
-          companies: data
+          data: data
         });
       }
     });
   },
 
   render() {
-
-  var companyList = this.state.companies
-  var listed = JSON.stringify(companyList)
-
-  return (
-
+    return (
       <div>
 
         <div id='header'>
@@ -44,8 +39,8 @@ var Companies = React.createClass({
         </div>
 
         <div id='company-list'>
-          <NewCompany handleSubmit={this.handleSubmit}/>
-          <Company companies={companyList} handleDelete={this.deleteCompany} onUpdate={this.updateCompany}  />
+          <NewCompany onCompanySubmit={this.handleCompanySubmit} />
+          <CompanyList data={this.state.data} />
         </div>
 
         <div id='footer'>
@@ -53,7 +48,7 @@ var Companies = React.createClass({
         </div>
 
       </div>
-
     )
   }
+
 });
