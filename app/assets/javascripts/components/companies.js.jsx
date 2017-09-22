@@ -2,28 +2,40 @@ var Companies = React.createClass({
 
   getDefaultProps() {
     return {
-      companies: []
+      data: []
     };
   },
 
   getInitialState() {
     return {
-      companies: this.props.companies
-    };
+      data: this.props.companies
+    }
   },
 
-  handleSubmit(company) {
-    var newState = this.state.companies.push(company);
-    this.setState({ companies: newState })
+  componentDidMount() {
+    this.getInitialState();
+  },
+
+  handleCompanySubmit(company) {
+    var that = this
+    $.ajax({
+      url:      '/companies',
+      dataType: 'json',
+      type:     'POST',
+      headers: {
+        'X-Transaction': 'POST Example',
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data:      { company: company },
+      success: function(data) {
+        console.log(data)
+        that.setState({data: data});
+      }
+    });
   },
 
   render() {
-
-  var companyList = this.state.companies
-  var listed = JSON.stringify(companyList)
-
-  return (
-
+    return (
       <div>
 
         <div id='header'>
@@ -31,8 +43,8 @@ var Companies = React.createClass({
         </div>
 
         <div id='company-list'>
-          <NewCompany handleSubmit={this.handleSubmit}/>
-          <Company companies={companyList} handleDelete={this.deleteCompany} onUpdate={this.updateCompany}  />
+          <NewCompany onCompanySubmit={this.handleCompanySubmit} />
+          <CompanyList data={this.state.data} />
         </div>
 
         <div id='footer'>
@@ -40,7 +52,7 @@ var Companies = React.createClass({
         </div>
 
       </div>
-
     )
   }
+
 });

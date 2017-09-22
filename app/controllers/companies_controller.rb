@@ -5,10 +5,12 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(params[:company])
+    @company = Company.new(company_params)
 
     if @company.save
 
+      render json function here
+      @company.as_json
     else
 
     end
