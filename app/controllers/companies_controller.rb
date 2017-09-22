@@ -7,12 +7,26 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
 
-    if @company.save
+    if request.xhr?
+      respond_to do |format|
 
-      render json function here
-      @company.as_json
-    else
+        format.html do
+          if @company.save
+            redirect_to companies_path
+          else
 
+          end
+        end
+
+        format.json do
+          if @company.save
+            render json: @company
+          else
+
+          end
+        end
+
+      end
     end
 
   end
