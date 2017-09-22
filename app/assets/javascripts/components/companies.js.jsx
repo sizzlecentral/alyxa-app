@@ -12,10 +12,6 @@ var Companies = React.createClass({
     }
   },
 
-  componentDidMount() {
-    this.getInitialState();
-  },
-
   handleCompanySubmit(company) {
     var that = this
     $.ajax({
