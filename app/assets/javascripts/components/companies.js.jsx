@@ -17,13 +17,19 @@ var Companies = React.createClass({
   },
 
   handleCompanySubmit(company) {
+    var that = this
     $.ajax({
       url:      '/companies',
       dataType: 'json',
       type:     'POST',
-      data:      company,
+      headers: {
+        'X-Transaction': 'POST Example',
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data:      { company: company },
       success: function(data) {
-        this.setState({data: data});
+        console.log(data)
+        that.setState({data: data});
       }
     });
   },
