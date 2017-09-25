@@ -1,15 +1,25 @@
 var Company = React.createClass({
 
+  getInitialState() {
+    return {
+      name:   this.props.name,
+      url:    this.props.url,
+      image:  this.props.image,
+    };
+  },
+
   render() {
+
+    console.log(this.state);
 
     return (
       <div>
-        <a href={this.props.url} target='_blank'>
+        <a href={this.state.url} target='_blank'>
           <div id='company-image'>
-            <img src={this.props.image} alt={this.props.name} height='75' width='75' />
+            <img src={this.state.image} alt={this.state.name} height='75' width='75' />
           </div>
           <div id='company-name'>
-            {this.props.name}
+            {this.state.name}
           </div>
         </a>
       </div>
