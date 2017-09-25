@@ -30,6 +30,24 @@ var Companies = React.createClass({
     });
   },
 
+  handleCompanyEdit(company) {
+    var that = this
+    $.ajax({
+      url:      '/companies/' + that.state.company.id + '.json',
+      dataType: 'json',
+      type:     'PUT',
+      headers: {
+        'X-Transaction': 'PUT Example',
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data:      { company: company },
+      success: function(data) {
+        var newData = that.state.data.concat([data]);
+        that.setState({data: newData});
+      }.bind(that),
+    });
+  },
+
   render() {
     return (
       <div>
@@ -39,7 +57,7 @@ var Companies = React.createClass({
         </div>
 
         <div id='company-list'>
-          <NewCompany onCompanySubmit={this.handleCompanySubmit} />
+          <NewCompany onCompanySubmit={this.handleCompanySubmit} onCompanyEdit={this.handleCompanyEdit} />
           <CompanyList data={this.state.data} />
         </div>
 

@@ -10,14 +10,6 @@ class CompaniesController < ApplicationController
     if request.xhr?
       respond_to do |format|
 
-        format.html do
-          if @company.save
-            redirect_to companies_path
-          else
-
-          end
-        end
-
         format.json do
           if @company.save
             render json: @company
@@ -29,6 +21,24 @@ class CompaniesController < ApplicationController
       end
     end
 
+  end
+
+  def update
+    @company = Company.find(params[:id])
+
+    if request.xhr?
+      respond_to do |format|
+
+        format.json do
+          if @company.update
+            render json: @company
+          else
+
+          end
+        end
+
+      end
+    end
   end
 
   private
