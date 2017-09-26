@@ -8,6 +8,30 @@ var Company = React.createClass({
     };
   },
 
+  handleCompanyEdit(e) {
+
+    e.preventDefault();
+    var name = this.state.name.trim();
+    var url = this.state.url.trim();
+    var image = this.state.image.trim();
+    if (!name) {
+      return;
+    }
+
+    this.props.onCompanyEdit({
+      name: name,
+      url: url,
+      image: image
+    });
+
+  },
+
+  setValue(field, event) {
+    var object = {};
+    object[field] = event.target.value;
+    this.setState(object);
+  },
+
   render() {
 
     return (
