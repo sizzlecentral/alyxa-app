@@ -10,8 +10,6 @@ var Company = React.createClass({
 
   render() {
 
-    console.log(this.state);
-
     return (
       <div>
         <div id='company-image'>
