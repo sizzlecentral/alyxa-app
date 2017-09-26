@@ -3,7 +3,9 @@ var CompanyList = React.createClass({
   render() {
 
     var data = this.props.data
-    
+
+    console.log(data);
+
     var companyList = data.map(function(company, index) {
       return (
         <div id='company-row' key={index}>

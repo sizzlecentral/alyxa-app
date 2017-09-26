@@ -14,14 +14,12 @@ var Company = React.createClass({
 
     return (
       <div>
-        <a href={this.state.url} target='_blank'>
-          <div id='company-image'>
-            <img src={this.state.image} alt={this.state.name} height='75' width='75' />
-          </div>
-          <div id='company-name'>
-            {this.state.name}
-          </div>
-        </a>
+        <div id='company-image'>
+          <img src={this.state.image} alt={this.state.name} height='75' width='75' />
+        </div>
+        <div id='company-name'>
+          {this.state.name}
+        </div>
       </div>
     );
 
