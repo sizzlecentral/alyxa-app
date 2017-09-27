@@ -2,9 +2,10 @@ var Company = React.createClass({
 
   getInitialState() {
     return {
-      name:   this.props.name,
-      url:    this.props.url,
-      image:  this.props.image,
+      name:     this.props.name,
+      url:      this.props.url,
+      image:    this.props.image,
+      editable: false,
     };
   },
 
@@ -33,6 +34,8 @@ var Company = React.createClass({
   },
 
   render() {
+
+    console.log(this.state);
 
     return (
       <div>
