@@ -5,18 +5,16 @@ var Company = React.createClass({
       name:     this.props.name,
       url:      this.props.url,
       image:    this.props.image,
+      id:      this.props.id,
       editable: false,
     };
   },
 
   makeEditable() {
-    return {
-      name:     this.state.name,
-      url:      this.state.url,
-      image:    this.state.image,
-      editable: true,
-    };
-    console.log('clicky');
+    console.log(this.state.editable)
+    this.state.editable = true
+    console.log(this.state.editable)
+    this.setState({editable: true})
   },
 
   handleCompanyEdit(e) {
@@ -25,6 +23,8 @@ var Company = React.createClass({
     var name = this.state.name.trim();
     var url = this.state.url.trim();
     var image = this.state.image.trim();
+    var editable = this.state.editable;
+    var id = this.state.id;
     if (!name) {
       return;
     }
@@ -32,7 +32,9 @@ var Company = React.createClass({
     this.props.onCompanyEdit({
       name: name,
       url: url,
-      image: image
+      image: image,
+      editable: editable,
+      id: id
     });
 
   },
@@ -40,7 +42,6 @@ var Company = React.createClass({
   setValue(field, event) {
     var object = {};
     object[field] = event.target.value;
-    object[editable] = false;
     this.setState(object);
   },
 
@@ -59,7 +60,7 @@ var Company = React.createClass({
               {this.state.name}
             </div>
             <div>
-              <button id='edit'>Edit</button>
+              <button id='edit' onClick={this.makeEditable}>Edit</button>
             </div>
 
         </div>
@@ -70,30 +71,37 @@ var Company = React.createClass({
         <div>
           <form id='edit-company-form' onSubmit={this.handleCompanyEdit}>
             <h3>Edit Company</h3>
-            <div id='company-image'>
+            <br />
+
             <FormInput
               value={this.state.image}
               text={this.state.image}
               onChange={this.setValue.bind(this, 'image')}
             />
             <br />
-            </div>
-            <div id='company-name'>
-              <FormInput
-                value={this.state.name}
-                text={this.state.name}
-                onChange={this.setValue.bind(this, 'name')}
-              />
-              <br />
-              <FormInput
-                value={this.state.url}
-                text={this.state.url}
-                onChange={this.setValue.bind(this, 'url')}
-              />
-              <br />
-            </div>
+
+            <FormInput
+              value={this.state.name}
+              text={this.state.name}
+              onChange={this.setValue.bind(this, 'name')}
+            />
+            <br />
+
+            <FormInput
+              value={this.state.url}
+              text={this.state.url}
+              onChange={this.setValue.bind(this, 'url')}
+            />
+            <br />
+
+            <FormInput
+              value={this.state.key}
+              type='hidden'
+            />
+
             <button type='submit' value='Submit'>Save Changes</button>
           </form>
+
         </div>
       );
 

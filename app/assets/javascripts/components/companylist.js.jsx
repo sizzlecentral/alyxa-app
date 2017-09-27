@@ -10,7 +10,7 @@ var CompanyList = React.createClass({
         <div id='company-row' key={index}>
           <Company
             onCompanyEdit={handleCompanyEdit}
-            key={data[index].company.id}
+            id={data[index].company.id}
             name={data[index].company.name}
             url={data[index].company.url}
             image={data[index].company.image}

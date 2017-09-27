@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
 
         format.json do
           if @company.save
+            @company.editable = false
             render json: @company
           else
 
