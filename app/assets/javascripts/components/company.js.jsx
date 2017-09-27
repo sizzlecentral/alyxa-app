@@ -9,6 +9,16 @@ var Company = React.createClass({
     };
   },
 
+  makeEditable() {
+    return {
+      name:     this.state.name,
+      url:      this.state.url,
+      image:    this.state.image,
+      editable: true,
+    };
+    console.log('clicky');
+  },
+
   handleCompanyEdit(e) {
 
     e.preventDefault();
@@ -30,25 +40,64 @@ var Company = React.createClass({
   setValue(field, event) {
     var object = {};
     object[field] = event.target.value;
+    object[editable] = false;
     this.setState(object);
   },
 
   render() {
 
-    console.log(this.state);
+    console.log(this.state.editable);
 
-    return (
-      <div>
+    if (this.state.editable === false) {
+      return (
+        <div>
 
-          <div id='company-image'>
-            <img src={this.state.image} alt={this.state.name} height='75' width='75' />
-          </div>
-          <div id='company-name' onChange={this.handleCompanyEdit}>
-            {this.state.name}
-          </div>
+            <div id='company-image'>
+              <img src={this.state.image} alt={this.state.name} height='75' width='75' />
+            </div>
+            <div id='company-name'>
+              {this.state.name}
+            </div>
+            <div>
+              <button id='edit'>Edit</button>
+            </div>
 
-      </div>
-    );
+        </div>
+      );
+
+    } else {
+      return (
+        <div>
+          <form id='edit-company-form' onSubmit={this.handleCompanyEdit}>
+            <h3>Edit Company</h3>
+            <div id='company-image'>
+            <FormInput
+              value={this.state.image}
+              text={this.state.image}
+              onChange={this.setValue.bind(this, 'image')}
+            />
+            <br />
+            </div>
+            <div id='company-name'>
+              <FormInput
+                value={this.state.name}
+                text={this.state.name}
+                onChange={this.setValue.bind(this, 'name')}
+              />
+              <br />
+              <FormInput
+                value={this.state.url}
+                text={this.state.url}
+                onChange={this.setValue.bind(this, 'url')}
+              />
+              <br />
+            </div>
+            <button type='submit' value='Submit'>Save Changes</button>
+          </form>
+        </div>
+      );
+
+    }
 
   }
 });
