@@ -4,6 +4,10 @@ class CompaniesController < ApplicationController
     @companies = Company.all.as_json
   end
 
+  def show
+    @company = Company.find(params[:id])
+  end
+
   def create
     @company = Company.new(company_params)
 
@@ -12,7 +16,6 @@ class CompaniesController < ApplicationController
 
         format.json do
           if @company.save
-            @company.editable = false
             render json: @company
           else
 
@@ -22,6 +25,10 @@ class CompaniesController < ApplicationController
       end
     end
 
+  end
+
+  def edit
+    @company = Company.find(params[:id])
   end
 
   def update

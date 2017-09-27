@@ -11,9 +11,6 @@ var Company = React.createClass({
   },
 
   makeEditable() {
-    console.log(this.state.editable)
-    this.state.editable = true
-    console.log(this.state.editable)
     this.setState({editable: true})
   },
 
@@ -46,9 +43,7 @@ var Company = React.createClass({
   },
 
   render() {
-
-    console.log(this.state.editable);
-
+    
     if (this.state.editable === false) {
       return (
         <div>
