@@ -34,7 +34,9 @@ class CompaniesController < ApplicationController
       respond_to do |format|
 
         format.json do
-          render json: @company
+          if @company.update(company_params)
+            render json: @company
+          end
         end
 
       end
