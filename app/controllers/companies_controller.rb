@@ -4,10 +4,6 @@ class CompaniesController < ApplicationController
     @companies = Company.all.as_json
   end
 
-  def show
-    @company = Company.find(params[:id])
-  end
-
   def create
     @company = Company.new(company_params)
 
@@ -38,11 +34,7 @@ class CompaniesController < ApplicationController
       respond_to do |format|
 
         format.json do
-          if @company.update
-            render json: @company
-          else
-
-          end
+          render json: @company
         end
 
       end

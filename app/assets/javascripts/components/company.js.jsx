@@ -43,7 +43,7 @@ var Company = React.createClass({
   },
 
   render() {
-    
+
     if (this.state.editable === false) {
       return (
         <div>
@@ -90,7 +90,7 @@ var Company = React.createClass({
             <br />
 
             <FormInput
-              value={this.state.key}
+              value={this.state.id}
               type='hidden'
             />
 

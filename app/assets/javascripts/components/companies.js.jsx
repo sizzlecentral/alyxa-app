@@ -32,9 +32,10 @@ var Companies = React.createClass({
 
   handleCompanyEdit(company) {
     var that = this
+    console.log(company);
 
     $.ajax({
-      url:      '/companies/' + company.id,
+      url:      `/companies/${company.id}`,
       dataType: 'json',
       type:     'PUT',
       headers: {
@@ -43,8 +44,10 @@ var Companies = React.createClass({
       },
       data:      { company: company },
       success: function(data) {
+        console.log('success!');
         var newData = that.state.data.concat([data]);
         that.setState({data: newData});
+        console.log(this.state);
       }.bind(that),
     });
   },
