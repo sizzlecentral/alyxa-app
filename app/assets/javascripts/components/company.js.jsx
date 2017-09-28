@@ -63,7 +63,7 @@ var Company = React.createClass({
           </a>
           <div>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
-          </div>        
+          </div>
         </div>
       );
 
