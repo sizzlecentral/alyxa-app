@@ -5,7 +5,7 @@ var Company = React.createClass({
       name:     this.props.name,
       url:      this.props.url,
       image:    this.props.image,
-      id:      this.props.id,
+      id:       this.props.id,
       editable: false,
     };
   },
@@ -74,6 +74,7 @@ var Company = React.createClass({
             <h3>Edit Company</h3>
             <br />
 
+            <p>Link to company image. File must be at least 75px x 75px.</p>
             <FormInput
               value={this.state.image}
               text={this.state.image}
@@ -81,6 +82,7 @@ var Company = React.createClass({
             />
             <br />
 
+            <p>Company name.</p>
             <FormInput
               value={this.state.name}
               text={this.state.name}
@@ -88,17 +90,13 @@ var Company = React.createClass({
             />
             <br />
 
+            <p>Link to company website.</p>
             <FormInput
               value={this.state.url}
               text={this.state.url}
               onChange={this.setValue.bind(this, 'url')}
             />
             <br />
-
-            <FormInput
-              value={this.state.id}
-              type='hidden'
-            />
 
             <button type='submit' value='Submit'>Save Changes</button>
           </form>
