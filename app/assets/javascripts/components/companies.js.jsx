@@ -44,8 +44,7 @@ var Companies = React.createClass({
       },
       data:      { company: company },
       success: function(data) {
-        var editData = that.state.data.concat([data]);
-        that.setState({data: editData});
+        that.setState({data: data});
       }.bind(that),
     });
   },
