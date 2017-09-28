@@ -43,6 +43,21 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def destroy
+    @company = Company.find(params[:id]).destroy
+
+    if request.xhr?
+      respond_to do |format|
+
+        format.json do
+          render json: {}
+        end
+
+      end
+    end
+
+  end
+
   private
 
   def company_params
