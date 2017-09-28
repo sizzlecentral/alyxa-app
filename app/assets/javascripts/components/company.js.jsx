@@ -53,17 +53,17 @@ var Company = React.createClass({
     if (this.state.editable === false) {
       return (
         <div>
-
+          <a href={this.state.url} target='_blank'>
             <div id='company-image'>
               <img src={this.state.image} alt={this.state.name} height='75' width='75' />
             </div>
             <div id='company-name'>
               {this.state.name}
             </div>
-            <div>
-              <button id='edit' onClick={this.makeEditable}>Edit</button>
-            </div>
-
+          </a>
+          <div>
+            <button id='edit' onClick={this.makeEditable}>Edit</button>
+          </div>        
         </div>
       );
 
@@ -72,14 +72,6 @@ var Company = React.createClass({
         <div>
           <form id='edit-company-form' onSubmit={this.handleCompanyEdit}>
             <h3>Edit Company</h3>
-            <br />
-
-            <p>Link to company image. File must be at least 75px x 75px.</p>
-            <FormInput
-              value={this.state.image}
-              text={this.state.image}
-              onChange={this.setValue.bind(this, 'image')}
-            />
             <br />
 
             <p>Company name.</p>
@@ -95,6 +87,14 @@ var Company = React.createClass({
               value={this.state.url}
               text={this.state.url}
               onChange={this.setValue.bind(this, 'url')}
+            />
+            <br />
+
+            <p>Link to company image. File must be at least 75px x 75px.</p>
+            <FormInput
+              value={this.state.image}
+              text={this.state.image}
+              onChange={this.setValue.bind(this, 'image')}
             />
             <br />
 
