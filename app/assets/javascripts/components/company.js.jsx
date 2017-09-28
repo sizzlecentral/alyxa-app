@@ -50,9 +50,6 @@ var Company = React.createClass({
     var image = this.state.image.trim();
     var editable = this.state.editable;
     var id = this.state.id;
-    if (!name) {
-      return;
-    }
 
     this.props.onCompanyDelete({
       name: name,
@@ -84,8 +81,8 @@ var Company = React.createClass({
             </div>
           </a>
           <div>
-            <button id='edit' onClick={this.makeEditable}>Edit</button>
             <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
+            <button id='edit' onClick={this.makeEditable}>Edit</button>
           </div>
         </div>
       );
