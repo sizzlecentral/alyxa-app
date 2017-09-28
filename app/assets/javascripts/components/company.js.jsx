@@ -14,6 +14,10 @@ var Company = React.createClass({
     this.setState({editable: true})
   },
 
+  unMakeEditable() {
+    this.setState({editable: false})
+  },
+
   handleCompanyEdit(e) {
 
     e.preventDefault();
@@ -33,6 +37,8 @@ var Company = React.createClass({
       editable: editable,
       id: id
     });
+
+    this.unMakeEditable();
 
   },
 
