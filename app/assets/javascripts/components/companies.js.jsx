@@ -19,7 +19,7 @@ var Companies = React.createClass({
       dataType: 'json',
       type:     'POST',
       headers: {
-        'X-Transaction': 'POST Example',
+        'X-Transaction': 'POST',
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data:      { company: company },
@@ -37,7 +37,7 @@ var Companies = React.createClass({
       dataType: 'json',
       type:     'PUT',
       headers: {
-        'X-Transaction': 'PUT Example',
+        'X-Transaction': 'PUT',
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data:      { company: company },
@@ -50,17 +50,21 @@ var Companies = React.createClass({
 
   handleCompanyDelete(company) {
     var that = this
+    var index = that.state.data.indexOf(company);
+    console.log(index);
+
     $.ajax({
       url:      `/companies/${company.id}`,
       dataType: 'json',
       type:     'DELETE',
       headers: {
-        'X-Transaction': 'PUT Example',
+        'X-Transaction': 'DELETE',
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data:      { company: company },
       success: function(data) {
-        var newData = that.state.data
+        var newData = this.state.data;
+        newData.splice(-1, 1);
         that.setState({data: newData});
       }.bind(that),
     });
