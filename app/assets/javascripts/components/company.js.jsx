@@ -55,7 +55,7 @@ var Company = React.createClass({
         <div>
           <a href={this.state.url} target='_blank'>
             <div id='company-image'>
-              <img src={this.state.image} alt={this.state.name} height='75' width='75' />
+              <img src={this.state.image} alt={this.state.name} height='150' width='240' />
             </div>
             <div id='company-name'>
               {this.state.name}
@@ -63,7 +63,7 @@ var Company = React.createClass({
           </a>
           <div>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
-          </div>        
+          </div>
         </div>
       );
 
