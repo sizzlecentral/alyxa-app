@@ -42,6 +42,25 @@ var Company = React.createClass({
 
   },
 
+  handleCompanyDelete(e) {
+
+    e.preventDefault();
+    var name = this.state.name.trim();
+    var url = this.state.url.trim();
+    var image = this.state.image.trim();
+    var editable = this.state.editable;
+    var id = this.state.id;
+
+    this.props.onCompanyDelete({
+      name: name,
+      url: url,
+      image: image,
+      editable: editable,
+      id: id
+    });
+
+  },
+
   setValue(field, event) {
     var object = {};
     object[field] = event.target.value;
@@ -62,6 +81,7 @@ var Company = React.createClass({
             </div>
           </a>
           <div>
+            <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
           </div>
         </div>

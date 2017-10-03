@@ -4,12 +4,14 @@ var CompanyList = React.createClass({
 
     var data = this.props.data
     var handleCompanyEdit = this.props.onCompanyEdit
+    var handleCompanyDelete = this.props.onCompanyDelete
 
     var companyList = data.map(function(company, index) {
       return (
         <div id='company-row' key={index}>
           <Company
             onCompanyEdit={handleCompanyEdit}
+            onCompanyDelete={handleCompanyDelete}
             id={data[index].company.id}
             name={data[index].company.name}
             url={data[index].company.url}

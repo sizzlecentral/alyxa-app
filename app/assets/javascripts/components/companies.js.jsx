@@ -32,8 +32,6 @@ var Companies = React.createClass({
 
   handleCompanyEdit(company) {
     var that = this
-    console.log(company);
-
     $.ajax({
       url:      `/companies/${company.id}`,
       dataType: 'json',
@@ -44,7 +42,26 @@ var Companies = React.createClass({
       },
       data:      { company: company },
       success: function(data) {
-        that.setState({data: data});
+        var newData = that.state.data;
+        that.setState({data: newData});
+      }.bind(that),
+    });
+  },
+
+  handleCompanyDelete(company) {
+    var that = this
+    $.ajax({
+      url:      `/companies/${company.id}`,
+      dataType: 'json',
+      type:     'DELETE',
+      headers: {
+        'X-Transaction': 'PUT Example',
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data:      { company: company },
+      success: function(data) {
+        var newData = that.state.data
+        that.setState({data: newData});
       }.bind(that),
     });
   },
@@ -59,7 +76,7 @@ var Companies = React.createClass({
 
         <div id='company-list'>
           <NewCompany onCompanySubmit={this.handleCompanySubmit} />
-          <CompanyList data={this.state.data} onCompanyEdit={this.handleCompanyEdit} />
+          <CompanyList data={this.state.data} onCompanyEdit={this.handleCompanyEdit} onCompanyDelete={this.handleCompanyDelete} />
         </div>
 
         <div id='footer'>
