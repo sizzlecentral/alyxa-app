@@ -59,7 +59,7 @@ var NewCompany= React.createClass({
         />
         <br />
 
-        <button type='submit' value='Submit'>Submit</button>
+        <button id='submit' type='submit' value='Submit'>Submit</button>
 
       </form>
     )

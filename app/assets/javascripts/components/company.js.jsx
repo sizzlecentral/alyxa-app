@@ -81,8 +81,8 @@ var Company = React.createClass({
             </div>
           </a>
           <div>
-            <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
+            <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
           </div>
         </div>
       );

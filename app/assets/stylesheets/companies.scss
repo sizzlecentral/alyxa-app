@@ -22,18 +22,19 @@ p {
   color: black;
 }
 
-img {
-  max-width: 100%;
-}
-
 input, button {
   width: 100%;
+}
+
+input, button#submit {
   padding: 1rem;
 }
 
 button#delete, button#edit {
-  float: right;
-  width: 12%;
+  margin-top: 15.5rem;
+  width: 50%;
+  float: left;
+  padding: .3rem;
 }
 
 #company-list {
@@ -47,6 +48,7 @@ button#delete, button#edit {
 #company-row {
   clear: both;
   display: inline-block;
+  position: relative;
   overflow: hidden;
   width: 240px;
   height: 300px;
@@ -58,6 +60,12 @@ button#delete, button#edit {
   -webkit-box-shadow: 0px 2px 7px -2px rgba(0,0,0,0.1);
   -moz-box-shadow: 0px 2px 7px -2px rgba(0,0,0,0.1);
   box-shadow: 0px 2px 7px -2px rgba(0,0,0,0.1);
+}
+
+#company-row img {
+  position: absolute;
+  max-width: none;
+  margin: -7% -6%;
 }
 
 #header, #footer {
@@ -75,7 +83,8 @@ button#delete, button#edit {
 }
 
 #company-name {
-  margin-left: .1rem;
+  position: absolute;
+  margin-top: 9rem;
   color: black;
 }
 
