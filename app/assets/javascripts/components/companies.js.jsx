@@ -50,7 +50,6 @@ var Companies = React.createClass({
 
   handleCompanyDelete(company) {
     var that = this
-
     $.ajax({
       url:      `/companies/${company.id}`,
       dataType: 'json',
