@@ -91,7 +91,7 @@ var Company = React.createClass({
       return (
         <div>
           <form id='edit-company-form' onSubmit={this.handleCompanyEdit}>
-            <h3>Edit Company {this.state.id}</h3>
+            <h3>Edit Company #{this.state.id}</h3>
             <br />
 
             <p>Company name.</p>
@@ -110,7 +110,7 @@ var Company = React.createClass({
             />
             <br />
 
-            <p>Link to company image. File must be at least 75px x 75px.</p>
+            <p>Link to company image. File must be at least 240px wide by 75px high.</p>
             <FormInput
               value={this.state.image}
               text={this.state.image}
