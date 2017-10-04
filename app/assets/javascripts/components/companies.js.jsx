@@ -50,8 +50,6 @@ var Companies = React.createClass({
 
   handleCompanyDelete(company) {
     var that = this
-    var index = that.state.data.indexOf(company);
-    console.log(index);
 
     $.ajax({
       url:      `/companies/${company.id}`,

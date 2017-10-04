@@ -74,7 +74,7 @@ var Company = React.createClass({
         <div>
           <a href={this.state.url} target='_blank'>
             <div id='company-image'>
-              <img src={this.state.image} alt={this.state.name} height='150' width='240' />
+              <img src={this.state.image} alt={this.state.name} />
             </div>
             <div id='company-name'>
               {this.state.name}
