@@ -8,7 +8,7 @@ var CompanyList = React.createClass({
 
     var companyList = data.map(function(company, index) {
       return (
-        <div id='company-row' key={index}>
+        <div id='company-row' key={data[index].company.id}>
           <Company
             onCompanyEdit={handleCompanyEdit}
             onCompanyDelete={handleCompanyDelete}

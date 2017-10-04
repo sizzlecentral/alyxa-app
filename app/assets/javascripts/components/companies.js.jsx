@@ -62,7 +62,7 @@ var Companies = React.createClass({
       data:      { company: company },
       success: function(data) {
         var newData = this.state.data;
-        newData.splice(-1, 1);
+        newData.splice(data, 1);
         that.setState({data: newData});
       }.bind(that),
     });
