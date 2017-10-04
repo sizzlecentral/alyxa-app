@@ -5,7 +5,7 @@ var Header = React.createClass({
     return (
 
       <div>
-        <p>Content</p>
+        <p>Header</p>
       </div>
 
     )

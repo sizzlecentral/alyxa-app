@@ -77,7 +77,7 @@ var Company = React.createClass({
               <img src={this.state.image} alt={this.state.name} />
             </div>
             <div id='company-name'>
-              {this.state.name} - {this.state.id}
+              {this.state.name}
             </div>
           </a>
           <div>
