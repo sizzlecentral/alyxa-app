@@ -71,7 +71,7 @@ var Company = React.createClass({
 
     if (this.state.editable === false) {
       return (
-        <div id='company-row' key={this.state.id}>
+        <div id='company-row'>
           <a href={this.state.url} target='_blank'>
             <div id='company-image'>
               <img src={this.state.image} alt={this.state.name} />
@@ -119,6 +119,9 @@ var Company = React.createClass({
             <br />
 
             <button id='submit' type='submit' value='Submit'>Save Changes</button>
+            <br />
+            <br />
+            <center><a onClick={this.unMakeEditable}>Cancel</a></center>
           </form>
 
         </div>

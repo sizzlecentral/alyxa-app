@@ -76,6 +76,9 @@ var NewCompany= React.createClass({
           <br />
 
           <button id='submit' type='submit' value='Submit'>Submit</button>
+          <br />
+          <br />
+          <center><a onClick={this.unMakeEditable}>Cancel</a></center>
 
         </form>
       )
