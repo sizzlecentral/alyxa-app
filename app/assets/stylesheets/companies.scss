@@ -54,6 +54,10 @@ button#delete, button#edit {
   padding: 1rem;
 }
 
+#company-wrapper {
+  display: inline-block;
+}
+
 #company-row {
   clear: both;
   display: inline-block;
@@ -102,4 +106,10 @@ button#delete, button#edit {
   overflow: hidden;
   padding: 2.5rem;
   margin: auto;
+}
+
+#edit-company-form {
+  background-color: white;
+  padding: 3rem;
+  margin: .5rem;
 }
