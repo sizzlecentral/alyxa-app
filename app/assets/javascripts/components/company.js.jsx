@@ -7,6 +7,7 @@ var Company = React.createClass({
       image:    this.props.image,
       id:       this.props.id,
       editable: false,
+      archived: false,
     };
   },
 
@@ -16,6 +17,14 @@ var Company = React.createClass({
 
   unMakeEditable() {
     this.setState({editable: false})
+  },
+
+  archive() {
+    this.setState({archived: true})
+  },
+
+  unArchive() {
+    this.setState({archived: false})
   },
 
   handleCompanyEdit(e) {
@@ -71,7 +80,7 @@ var Company = React.createClass({
 
     console.log(this.state.id);
 
-    if (this.state.editable === false) {
+    if (this.state.editable === false && this.state.archived === false) {
       return (
         <div id='company-row'>
           <a href={this.state.url} target='_blank'>
@@ -84,8 +93,14 @@ var Company = React.createClass({
           </a>
           <div>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
-            <button id='delete' key={this.state.id} onClick={this.handleCompanyDelete}>Delete</button>
+            <button id='archive' key={this.state.id} onClick={this.archive}>Archive</button>
           </div>
+        </div>
+      );
+
+    } else if (this.state.editable === false && this.state.archived === true) {
+      return (
+        <div>
         </div>
       );
 
