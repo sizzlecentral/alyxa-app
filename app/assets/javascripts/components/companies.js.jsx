@@ -31,6 +31,7 @@ var Companies = React.createClass({
   },
 
   handleCompanyEdit(company) {
+    console.log(company)
     var that = this
     $.ajax({
       url:      `/companies/${company.id}`,
@@ -51,7 +52,7 @@ var Companies = React.createClass({
   handleCompanyDelete(company) {
     var that = this
     var key = company.key
-    
+
     $.ajax({
       url:      `/companies/${company.id}`,
       dataType: 'json',

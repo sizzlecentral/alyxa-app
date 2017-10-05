@@ -17,6 +17,7 @@ var CompanyList = React.createClass({
             name={data[index].company.name}
             url={data[index].company.url}
             image={data[index].company.image}
+            archived={data[index].company.archived}
           />
         </div>
       )
