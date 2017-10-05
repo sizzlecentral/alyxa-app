@@ -69,6 +69,8 @@ var Company = React.createClass({
 
   render() {
 
+    console.log(this.state.id);
+
     if (this.state.editable === false) {
       return (
         <div id='company-row'>
@@ -82,7 +84,7 @@ var Company = React.createClass({
           </a>
           <div>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
-            <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
+            <button id='delete' key={this.state.id} onClick={this.handleCompanyDelete}>Delete</button>
           </div>
         </div>
       );
@@ -110,7 +112,7 @@ var Company = React.createClass({
             />
             <br />
 
-            <p>Link to company image. File must be at least 240px wide by 75px high.</p>
+            <p>Link to company image. File must be at least 240px wide by 150px high.</p>
             <FormInput
               value={this.state.image}
               text={this.state.image}

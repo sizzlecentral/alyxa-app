@@ -10,6 +10,7 @@ var CompanyList = React.createClass({
       return (
         <div id='company-wrapper' key={index}>
           <Company
+            data={data}
             onCompanyEdit={handleCompanyEdit}
             onCompanyDelete={handleCompanyDelete}
             id={data[index].company.id}
