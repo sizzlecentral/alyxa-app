@@ -35,7 +35,7 @@ var Company = React.createClass({
       url: url,
       image: image,
       editable: editable,
-      id: id
+      id: id,
     });
 
     this.unMakeEditable();
