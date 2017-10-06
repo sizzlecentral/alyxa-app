@@ -4,15 +4,22 @@ var CompanyList = React.createClass({
 
     var data = this.props.data
     var handleCompanyEdit = this.props.onCompanyEdit
-    var handleCompanyDelete = this.props.onCompanyDelete
+    var deleteCompany = this.props.onCompanyDelete;
 
     var companyList = data.map(function(company, index) {
+      var id = data[index].company.id;
+
       return (
-        <div id='company-wrapper' key={data[index].company.id}>
+        <div id='company-wrapper' key={id}>
           <Company
             data={data}
             onCompanyEdit={handleCompanyEdit}
-            onCompanyDelete={handleCompanyDelete}
+            onCompanyDelete={function() {
+                deleteCompany(id, index)
+              }
+            }
+            onCompanyDelete={ () => deleteCompany(id, index) }
+            onCompanyDelete={deleteCompany.bind(null, id, index)}
             id={data[index].company.id}
             name={data[index].company.name}
             url={data[index].company.url}

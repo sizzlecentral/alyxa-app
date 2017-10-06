@@ -48,22 +48,20 @@ var Companies = React.createClass({
     });
   },
 
-  handleCompanyDelete(company) {
+  handleCompanyDelete(id, index) {
     var that = this
-    var key = company.key
-    
     $.ajax({
-      url:      `/companies/${company.id}`,
+      url:      `/companies/${id}`,
       dataType: 'json',
       type:     'DELETE',
       headers: {
         'X-Transaction': 'DELETE',
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
-      data:      { company: company },
+      data:      { company: { id: id } },
       success: function(data) {
         var newData = this.state.data;
-        newData.splice(key, 1);
+        newData.splice(index, 1);
         that.setState({data: newData});
       }.bind(that),
     });
