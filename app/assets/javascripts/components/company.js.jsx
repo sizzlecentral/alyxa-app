@@ -20,13 +20,35 @@ var Company = React.createClass({
   },
 
   archive(e) {
-    this.setState({archived: true})
-    this.handleCompanyEdit(e)
+    console.log(e)
+    this.setState({archived: true}, function() {
+      this.handleCompanyArchive(e)
+    })
   },
 
   unArchive(e) {
     this.setState({archived: false})
-    this.handleCompanyEdit(e)
+    this.handleCompanyArchive(e)
+  },
+
+  handleCompanyArchive(e) {
+
+    var name = this.state.name.trim();
+    var url = this.state.url.trim();
+    var image = this.state.image.trim();
+    var editable = this.state.editable;
+    var id = this.state.id;
+    var archived = this.state.archived;
+
+    this.props.onCompanyEdit({
+      name: name,
+      url: url,
+      image: image,
+      editable: editable,
+      id: id,
+      archived: archived,
+    });
+
   },
 
   handleCompanyEdit(e) {
@@ -98,7 +120,7 @@ var Company = React.createClass({
           </a>
           <div>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
-            <button id='archive' key={this.state.id} onClick={this.archive}>Archive</button>
+            <button id='archive' onClick={this.archive}>Archive</button>
           </div>
         </div>
       );
