@@ -8,6 +8,8 @@ var CompanyList = React.createClass({
 
     var companyList = data.map(function(company, index) {
 
+      var id = data[index].company.id;
+
       if (data[index].company.archived === 'true') {
         return (
           <div id='hidden-div' key={data[index].company.id}>
@@ -15,11 +17,14 @@ var CompanyList = React.createClass({
         )
       } else {
         return (
-          <div id='company-wrapper' key={data[index].company.id}>
+          <div id='company-wrapper' key={id}>
             <Company
               data={data}
               onCompanyEdit={handleCompanyEdit}
-              onCompanyDelete={handleCompanyDelete}
+              onCompanyDelete={function() {
+                  deleteCompany(id, index)
+                }
+              }
               id={data[index].company.id}
               name={data[index].company.name}
               url={data[index].company.url}
