@@ -7,26 +7,29 @@ var CompanyList = React.createClass({
     var deleteCompany = this.props.onCompanyDelete;
 
     var companyList = data.map(function(company, index) {
-      var id = data[index].company.id;
 
-      return (
-        <div id='company-wrapper' key={id}>
-          <Company
-            data={data}
-            onCompanyEdit={handleCompanyEdit}
-            onCompanyDelete={function() {
-                deleteCompany(id, index)
-              }
-            }
-            onCompanyDelete={ () => deleteCompany(id, index) }
-            onCompanyDelete={deleteCompany.bind(null, id, index)}
-            id={data[index].company.id}
-            name={data[index].company.name}
-            url={data[index].company.url}
-            image={data[index].company.image}
-          />
-        </div>
-      )
+      if (data[index].company.archived === 'true') {
+        return (
+          <div id='hidden-div' key={data[index].company.id}>
+          </div>
+        )
+      } else {
+        return (
+          <div id='company-wrapper' key={data[index].company.id}>
+            <Company
+              data={data}
+              onCompanyEdit={handleCompanyEdit}
+              onCompanyDelete={handleCompanyDelete}
+              id={data[index].company.id}
+              name={data[index].company.name}
+              url={data[index].company.url}
+              image={data[index].company.image}
+              archived={data[index].company.archived}
+            />
+          </div>
+        )
+      }
+
     });
 
     return (

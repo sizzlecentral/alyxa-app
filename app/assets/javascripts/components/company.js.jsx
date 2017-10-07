@@ -6,6 +6,7 @@ var Company = React.createClass({
       url:      this.props.url,
       image:    this.props.image,
       id:       this.props.id,
+      archived: this.props.archived,
       editable: false,
     };
   },
@@ -18,6 +19,33 @@ var Company = React.createClass({
     this.setState({editable: false})
   },
 
+  archive(e) {
+    e.persist();
+    this.setState({archived: true}, function() {
+      this.handleCompanyArchive(e);
+    })
+  },
+
+  unArchive(e) {
+    e.persist();
+    this.setState({archived: false}, function() {
+      this.handleCompanyArchive(e);
+    })
+  },
+
+  handleCompanyArchive(e) {
+
+    e.preventDefault();
+    var archived = this.state.archived;
+    var id = this.state.id;
+
+    this.props.onCompanyEdit({
+      id: id,
+      archived: archived,
+    });
+
+  },
+
   handleCompanyEdit(e) {
 
     e.preventDefault();
@@ -26,6 +54,7 @@ var Company = React.createClass({
     var image = this.state.image.trim();
     var editable = this.state.editable;
     var id = this.state.id;
+    var archived = this.state.archived;
     if (!name) {
       return;
     }
@@ -36,6 +65,7 @@ var Company = React.createClass({
       image: image,
       editable: editable,
       id: id,
+      archived: archived,
     });
 
     this.unMakeEditable();
@@ -58,9 +88,7 @@ var Company = React.createClass({
 
   render() {
 
-    console.log(this.state.id);
-
-    if (this.state.editable === false) {
+    if (this.state.editable === false && this.state.archived != true) {
       return (
         <div id='company-row'>
           <a href={this.state.url} target='_blank'>
@@ -73,8 +101,14 @@ var Company = React.createClass({
           </a>
           <div>
             <button id='edit' onClick={this.makeEditable}>Edit</button>
-            <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
+            <button id='archive' onClick={this.archive}>Archive</button>
           </div>
+        </div>
+      );
+
+    } else if (this.state.editable === false && this.state.archived === true) {
+      return (
+        <div>
         </div>
       );
 
