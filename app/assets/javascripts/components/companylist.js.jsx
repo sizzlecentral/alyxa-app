@@ -3,10 +3,14 @@ var CompanyList = React.createClass({
   render() {
 
     var data = this.props.data
+    console.log(data);
     var handleCompanyEdit = this.props.onCompanyEdit
     var handleCompanyDelete = this.props.onCompanyDelete
 
     var companyList = data.map(function(company, index) {
+
+      console.log(data[index].company.archived);
+
       return (
         <div id='company-wrapper' key={data[index].company.id}>
           <Company
