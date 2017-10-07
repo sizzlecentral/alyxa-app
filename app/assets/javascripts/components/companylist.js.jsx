@@ -4,7 +4,7 @@ var CompanyList = React.createClass({
 
     var data = this.props.data
     var handleCompanyEdit = this.props.onCompanyEdit
-    var handleCompanyDelete = this.props.onCompanyDelete
+    var deleteCompany = this.props.onCompanyDelete;
 
     var companyList = data.map(function(company, index) {
 

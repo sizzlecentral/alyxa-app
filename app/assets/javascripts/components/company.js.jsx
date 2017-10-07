@@ -75,19 +75,8 @@ var Company = React.createClass({
   handleCompanyDelete(e) {
 
     e.preventDefault();
-    var name = this.state.name.trim();
-    var url = this.state.url.trim();
-    var image = this.state.image.trim();
-    var editable = this.state.editable;
-    var id = this.state.id;
 
-    this.props.onCompanyDelete({
-      name: name,
-      url: url,
-      image: image,
-      editable: editable,
-      id: id
-    });
+    this.props.onCompanyDelete();
 
   },
 
