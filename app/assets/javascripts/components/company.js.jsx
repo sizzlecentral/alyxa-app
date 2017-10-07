@@ -99,10 +99,6 @@ var Company = React.createClass({
 
   render() {
 
-    console.log(this.state.id);
-    console.log(this.state.editable);
-    console.log(this.state.archived);
-
     if (this.state.editable === false && this.state.archived != true) {
       return (
         <div id='company-row'>
