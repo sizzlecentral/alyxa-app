@@ -50,12 +50,17 @@ button#new {
 }
 
 button#delete, button#edit, button#archive {
-  margin-top: 8rem;
-  margin-left: .3rem;
-  margin-right: .1rem;
-  width: 46%;
+  margin-top: .5rem;
+  width: 49.5%;
+  padding: 1rem;
+}
+
+button#edit {
   float: left;
-  padding: .3rem;
+}
+
+button#archive {
+  float: right;
 }
 
 #header, #footer {
@@ -156,4 +161,5 @@ button#delete, button#edit, button#archive {
   background-color: white;
   padding: 3rem;
   margin: .5rem;
+  overflow: hidden;
 }
