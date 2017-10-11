@@ -14,9 +14,11 @@ var Company = React.createClass({
 
   showCompany() {
     this.setState({show: true})
-    console.log('clicked');
   },
 
+  closeCompany() {
+    this.setState({show: false})
+  },
 
   makeEditable() {
     this.setState({editable: true})
@@ -122,6 +124,7 @@ var Company = React.createClass({
             editable={this.state.editable}
             archived={this.state.archived}
             show={this.state.show}
+            closeCompany={this.closeCompany}
           />
         </div>
       );

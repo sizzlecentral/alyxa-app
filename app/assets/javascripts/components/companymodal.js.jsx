@@ -11,16 +11,6 @@ var Modal = React.createClass({
     };
   },
 
-  onClose(e) {
-    this.setState({
-      show:     false,
-      editable: false
-    })
-    console.log(this.state.show);
-    console.log(this.state.editable);
-  },
-
-
   render() {
 
     if (!this.state.show) {
@@ -36,7 +26,7 @@ var Modal = React.createClass({
         <h1>{this.state.name}</h1>
         <a href={this.state.url} target='_blank'>{this.state.url}</a>
         <br />
-        <button id='close-modal' onClick={this.onClose}>Close</button>
+        <button id='close-modal' onClick={this.props.closeCompany}>Close</button>
       </div>
     );
   }
