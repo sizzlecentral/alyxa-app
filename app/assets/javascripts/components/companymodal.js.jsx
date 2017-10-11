@@ -5,6 +5,7 @@ var Modal = React.createClass({
       name:     this.props.name,
       image:    this.props.image,
       url:      this.props.url,
+      id:       this.props.id,
       editable: this.props.editable,
       archived: this.props.archived,
       show:     this.props.show,
@@ -20,6 +21,7 @@ var Modal = React.createClass({
   },
 
   archive(e) {
+    console.log(e)
     e.persist();
     this.setState({archived: true}, function() {
       this.handleCompanyArchive(e);
@@ -43,6 +45,8 @@ var Modal = React.createClass({
       id: id,
       archived: archived,
     });
+
+    this.props.closeCompany();
 
   },
 

@@ -46,6 +46,7 @@ var Company = React.createClass({
             name={this.state.name}
             image={this.state.image}
             url={this.state.url}
+            id={this.state.id}
             editable={this.state.editable}
             archived={this.state.archived}
             show={this.state.show}
