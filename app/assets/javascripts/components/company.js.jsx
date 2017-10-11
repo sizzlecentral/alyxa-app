@@ -34,7 +34,7 @@ var Company = React.createClass({
             </div>
           </a>
           <div>
-            <button id='view' onClick={this.showCompany}>View Progress</button>
+            <button id='view' onClick={this.showCompany}>View Details</button>
           </div>
         </div>
       );

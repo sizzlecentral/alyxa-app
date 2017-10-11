@@ -73,6 +73,7 @@ var Modal = React.createClass({
     });
 
     this.unMakeEditable();
+    this.props.closeCompany();
 
   },
 
