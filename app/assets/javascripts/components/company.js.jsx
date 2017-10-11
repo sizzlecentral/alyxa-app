@@ -8,8 +8,15 @@ var Company = React.createClass({
       id:       this.props.id,
       archived: this.props.archived,
       editable: false,
+      show:     false,
     };
   },
+
+  showCompany() {
+    this.setState({show: true})
+    console.log('clicked');
+  },
+
 
   makeEditable() {
     this.setState({editable: true})
@@ -88,7 +95,7 @@ var Company = React.createClass({
 
   render() {
 
-    if (this.state.editable === false && this.state.archived != true) {
+    if (this.state.archived != true && this.state.show != true) {
       return (
         <div id='company-row'>
           <a href={this.state.url} target='_blank'>
@@ -100,58 +107,30 @@ var Company = React.createClass({
             </div>
           </a>
           <div>
-            <button id='edit' onClick={this.makeEditable}>Edit</button>
-            <button id='archive' onClick={this.archive}>Archive</button>
+            <button id='view' onClick={this.showCompany}>View Progress</button>
           </div>
         </div>
       );
 
-    } else if (this.state.editable === false && this.state.archived === true) {
+    } else if (this.state.show === true) {
       return (
         <div>
+          <Modal
+            name={this.state.name}
+            image={this.state.image}
+            url={this.state.url}
+            editable={this.state.editable}
+            archived={this.state.archived}
+            show={this.state.show}
+          />
         </div>
       );
 
     } else {
       return (
         <div>
-          <form id='edit-company-form' onSubmit={this.handleCompanyEdit}>
-            <h3>Edit Company #{this.state.id}</h3>
-            <br />
-
-            <p>Company name.</p>
-            <FormInput
-              value={this.state.name}
-              text={this.state.name}
-              onChange={this.setValue.bind(this, 'name')}
-            />
-            <br />
-
-            <p>Link to company website.</p>
-            <FormInput
-              value={this.state.url}
-              text={this.state.url}
-              onChange={this.setValue.bind(this, 'url')}
-            />
-            <br />
-
-            <p>Link to company image. File must be at least 240px wide by 150px high.</p>
-            <FormInput
-              value={this.state.image}
-              text={this.state.image}
-              onChange={this.setValue.bind(this, 'image')}
-            />
-            <br />
-
-            <button id='submit' type='submit' value='Submit'>Save Changes</button>
-            <br />
-            <br />
-            <center><a onClick={this.unMakeEditable}>Cancel</a></center>
-          </form>
-
         </div>
       );
-
     }
 
   }
