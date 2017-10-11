@@ -19,7 +19,7 @@ var Modal = React.createClass({
 
     return (
       <div id='company-modal'>
-        <div id='company-image'>
+        <div id='company-show-image'>
           <img src={this.state.image} alt={this.state.name} />
         </div>
         <br />
