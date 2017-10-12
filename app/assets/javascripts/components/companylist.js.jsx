@@ -2,7 +2,7 @@ var CompanyList = React.createClass({
 
   render() {
 
-    var data = this.props.data
+    var data = this.props.data.reverse()
     var handleCompanyEdit = this.props.onCompanyEdit
     var deleteCompany = this.props.onCompanyDelete;
 
