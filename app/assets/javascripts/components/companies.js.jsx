@@ -31,7 +31,6 @@ var Companies = React.createClass({
   },
 
   handleCompanyEdit(company) {
-    console.log(company);
     var that = this
     $.ajax({
       url:      `/companies/${company.id}`,
@@ -45,8 +44,6 @@ var Companies = React.createClass({
       success: function(data) {
         var newData = that.state.data;
         that.setState({data: newData});
-        console.log(data);
-        console.log(newData);
       }.bind(that),
     });
   },

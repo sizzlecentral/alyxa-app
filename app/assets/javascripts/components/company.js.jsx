@@ -20,6 +20,82 @@ var Company = React.createClass({
     this.setState({show: false})
   },
 
+  makeEditable() {
+    this.setState({editable: true})
+  },
+
+  unMakeEditable() {
+    this.setState({editable: false})
+  },
+
+  archive(e) {
+    e.persist();
+    this.setState({archived: true}, function() {
+      this.handleCompanyArchive(e);
+    })
+  },
+
+  unArchive(e) {
+    e.persist();
+    this.setState({archived: false}, function() {
+      this.handleCompanyArchive(e);
+    })
+  },
+
+  handleCompanyArchive(e) {
+
+    e.preventDefault();
+    var archived = this.state.archived;
+    var id = this.state.id;
+
+    this.props.onCompanyEdit({
+      id: id,
+      archived: archived,
+    });
+
+    this.closeCompany();
+
+  },
+
+  handleCompanyEdit(e) {
+
+    e.preventDefault();
+    var name = this.state.name.trim();
+    var url = this.state.url.trim();
+    var image = this.state.image.trim();
+    var id = this.state.id;
+    var archived = this.state.archived;
+    if (!name) {
+      return;
+    }
+
+    this.props.onCompanyEdit({
+      name: name,
+      url: url,
+      image: image,
+      id: id,
+      archived: archived,
+    });
+
+    this.unMakeEditable();
+    this.closeCompany();
+
+  },
+
+  handleCompanyDelete(e) {
+
+    e.preventDefault();
+
+    this.props.onCompanyDelete();
+
+  },
+
+  setValue(field, event) {
+    var object = {};
+    object[field] = event.target.value;
+    this.setState(object);
+  },
+
   render() {
 
     if (this.state.archived != true && this.state.show != true) {
@@ -48,11 +124,14 @@ var Company = React.createClass({
             url={this.state.url}
             id={this.state.id}
             editable={this.state.editable}
-            archived={this.state.archived}
             show={this.state.show}
             closeCompany={this.closeCompany}
-            onCompanyEdit={this.props.onCompanyEdit}
-            onCompanyDelete={this.props.onCompanyDelete}
+            makeEditable={this.makeEditable}
+            unMakeEditable={this.unMakeEditable}
+            onCompanyEdit={this.handleCompanyEdit}
+            onCompanyDelete={this.handleCompanyDelete}
+            onCompanyArchive={this.archive}
+            setValue={this.setValue}
           />
         </div>
       );
