@@ -42,8 +42,7 @@ var Modal = React.createClass({
     var id = this.state.id;
 
     this.props.onCompanyEdit({
-      id: id,
-      archived: archived,
+      company: company,
     });
 
     this.props.closeCompany();
@@ -51,7 +50,6 @@ var Modal = React.createClass({
   },
 
   handleCompanyEdit(e) {
-
     e.preventDefault();
     var name = this.state.name.trim();
     var url = this.state.url.trim();
@@ -59,6 +57,7 @@ var Modal = React.createClass({
     var editable = this.state.editable;
     var id = this.state.id;
     var archived = this.state.archived;
+    var show = this.state.show;
     if (!name) {
       return;
     }
@@ -70,6 +69,7 @@ var Modal = React.createClass({
       editable: editable,
       id: id,
       archived: archived,
+      show: show,
     });
 
     this.unMakeEditable();
