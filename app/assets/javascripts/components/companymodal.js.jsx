@@ -32,7 +32,7 @@ var Modal = React.createClass({
             <FormInput
               value={this.props.name}
               text={this.props.name}
-              onChange={this.props.setValue.bind(this, 'name')}
+              onChange={this.props.setValue.bind(null, 'name')}
             />
             <br />
 
@@ -40,7 +40,7 @@ var Modal = React.createClass({
             <FormInput
               value={this.props.url}
               text={this.props.url}
-              onChange={this.props.setValue.bind(this, 'url')}
+              onChange={this.props.setValue.bind(null, 'url')}
             />
             <br />
 
@@ -48,7 +48,7 @@ var Modal = React.createClass({
             <FormInput
               value={this.props.image}
               text={this.props.image}
-              onChange={this.props.setValue.bind(this, 'image')}
+              onChange={this.props.setValue.bind(null, 'image')}
             />
             <br />
 
