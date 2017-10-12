@@ -17,7 +17,7 @@ var CompanyList = React.createClass({
         )
       } else {
         return (
-          <div id='company-wrapper' key={id}>
+          <div id='company-wrapper' key={data[index].company.id}>
             <Company
               data={data}
               onCompanyEdit={handleCompanyEdit}
@@ -30,6 +30,8 @@ var CompanyList = React.createClass({
               url={data[index].company.url}
               image={data[index].company.image}
               archived={data[index].company.archived}
+              editable={data[index].company.editable}
+              show={data[index].company.show}
             />
           </div>
         )
