@@ -42,7 +42,7 @@ var Companies = React.createClass({
       },
       data:      { company: company },
       success: function(data) {
-        var newData = that.state.data;
+        var newData = that.state.data.reverse();
         that.setState({data: newData});
       }.bind(that),
     });
