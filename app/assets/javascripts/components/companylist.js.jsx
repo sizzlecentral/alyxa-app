@@ -1,5 +1,26 @@
 var CompanyList = React.createClass({
 
+  getInitialState() {
+    return {
+      show: 'current'
+    };
+  },
+
+  current() {
+    this.setState({show: 'current'})
+    console.log(this.state.show);
+  },
+
+  archived() {
+    this.setState({show: 'archived'})
+    console.log(this.state.show);
+  },
+
+  all() {
+    this.setState({show: 'all'})
+    console.log(this.state.show);
+  },
+
   render() {
 
     var data = this.props.data.reverse()
@@ -41,6 +62,11 @@ var CompanyList = React.createClass({
 
     return (
       <div>
+        <CompanyNav
+          current={this.current}
+          archived={this.archived}
+          all={this.all}
+        />
         {companyList}
       </div>
     )
