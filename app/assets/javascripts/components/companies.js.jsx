@@ -77,6 +77,7 @@ var Companies = React.createClass({
 
         <div id='company-list'>
           <NewCompany onCompanySubmit={this.handleCompanySubmit} />
+          <CompanyNav />
           <CompanyList data={this.state.data} onCompanyEdit={this.handleCompanyEdit} onCompanyDelete={this.handleCompanyDelete} />
         </div>
 
