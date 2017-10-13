@@ -10,11 +10,11 @@ var CompanyList = React.createClass({
     this.setState({
       show: this.state.show
     });
-    console.log(this.state.show);
   },
 
   handleState(e) {
     this.setState({show: e.target.value}, this.toggleState);
+    console.log(this.state.show);
   },
 
   render() {
@@ -52,6 +52,7 @@ var CompanyList = React.createClass({
                 archived={data[index].company.archived}
                 editable={data[index].company.editable}
                 show={data[index].company.show}
+                toggle={this.handleState}
               />
             </div>
           )
@@ -76,6 +77,7 @@ var CompanyList = React.createClass({
                 archived={data[index].company.archived}
                 editable={data[index].company.editable}
                 show={data[index].company.show}
+                toggle={this.handleState}
               />
             </div>
           )
@@ -105,6 +107,7 @@ var CompanyList = React.createClass({
                 archived={data[index].company.archived}
                 editable={data[index].company.editable}
                 show={data[index].company.show}
+                toggle={this.handleState}
               />
             </div>
           )
@@ -126,6 +129,7 @@ var CompanyList = React.createClass({
                 archived={data[index].company.archived}
                 editable={data[index].company.editable}
                 show={data[index].company.show}
+                toggle={this.handleState}
               />
             </div>
           )
