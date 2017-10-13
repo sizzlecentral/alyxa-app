@@ -2,19 +2,19 @@ var CompanyList = React.createClass({
 
   getInitialState() {
     return {
-      show: 'current'
+      shown: 'current'
     };
   },
 
   toggleState(state) {
     this.setState({
-      show: this.state.show
+      shown: this.state.shown
     });
   },
 
   handleState(e) {
-    this.setState({show: e.target.value}, this.toggleState);
-    console.log(this.state.show);
+    this.setState({shown: e.target.value}, this.toggleState);
+    console.log(this.state.shown);
   },
 
   render() {
@@ -22,7 +22,7 @@ var CompanyList = React.createClass({
     var data = this.props.data.reverse()
     var handleCompanyEdit = this.props.onCompanyEdit
     var deleteCompany = this.props.onCompanyDelete;
-    var state = this.state.show
+    var state = this.state.shown
 
     var companyList = data.map(function(company, index) {
 
