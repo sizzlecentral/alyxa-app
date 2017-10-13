@@ -10,7 +10,6 @@ var CompanyList = React.createClass({
     this.setState({
       show: this.state.show
     });
-    console.log(this.state.show);
   },
 
   handleState(e) {

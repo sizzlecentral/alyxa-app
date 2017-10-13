@@ -98,49 +98,90 @@ var Company = React.createClass({
 
   render() {
 
-    if (this.state.archived != true && this.state.show != true) {
-      return (
-        <div id='company-card'>
-          <a href={this.state.url} target='_blank'>
-            <div id='company-image'>
-              <img src={this.state.image} alt={this.state.name} />
-            </div>
-            <div id='company-name'>
-              {this.state.name}
-            </div>
-          </a>
-          <div>
-            <button id='view' onClick={this.showCompany}>View Details</button>
-          </div>
-        </div>
-      );
+    if (this.state.archived != 'true') {
 
-    } else if (this.state.show === true) {
-      return (
-        <div>
-          <Modal
-            name={this.state.name}
-            image={this.state.image}
-            url={this.state.url}
-            id={this.state.id}
-            editable={this.state.editable}
-            show={this.state.show}
-            closeCompany={this.closeCompany}
-            makeEditable={this.makeEditable}
-            unMakeEditable={this.unMakeEditable}
-            onCompanyEdit={this.handleCompanyEdit}
-            onCompanyDelete={this.handleCompanyDelete}
-            onCompanyArchive={this.archive}
-            setValue={this.setValue}
-          />
-        </div>
-      );
+      if (this.state.show != true) {
+        return (
+          <div id='company-card'>
+            <a href={this.state.url} target='_blank'>
+              <div id='company-image'>
+                <img src={this.state.image} alt={this.state.name} />
+              </div>
+              <div id='company-name'>
+                {this.state.name}
+              </div>
+            </a>
+            <div>
+              <button id='view' onClick={this.showCompany}>View Details</button>
+            </div>
+          </div>
+        );
+
+      } else {
+        return (
+          <div>
+            <Modal
+              name={this.state.name}
+              image={this.state.image}
+              url={this.state.url}
+              id={this.state.id}
+              editable={this.state.editable}
+              show={this.state.show}
+              archived={this.state.archived}
+              closeCompany={this.closeCompany}
+              makeEditable={this.makeEditable}
+              unMakeEditable={this.unMakeEditable}
+              onCompanyEdit={this.handleCompanyEdit}
+              onCompanyDelete={this.handleCompanyDelete}
+              onCompanyArchive={this.archive}
+              setValue={this.setValue}
+            />
+          </div>
+        );
+      }
 
     } else {
-      return (
-        <div>
-        </div>
-      );
+
+      if (this.state.show != true) {
+        return (
+          <div id='company-card-archive'>
+            <a href={this.state.url} target='_blank'>
+              <div id='company-image'>
+                <img src={this.state.image} alt={this.state.name} />
+              </div>
+              <div id='company-name'>
+                {this.state.name}
+              </div>
+            </a>
+            <div>
+              <button id='view-archive' onClick={this.showCompany}>View Details</button>
+            </div>
+          </div>
+        );
+
+      } else {
+        return (
+          <div>
+            <Modal
+              name={this.state.name}
+              image={this.state.image}
+              url={this.state.url}
+              id={this.state.id}
+              editable={this.state.editable}
+              show={this.state.show}
+              archived={this.state.archived}
+              closeCompany={this.closeCompany}
+              makeEditable={this.makeEditable}
+              unMakeEditable={this.unMakeEditable}
+              onCompanyEdit={this.handleCompanyEdit}
+              onCompanyDelete={this.handleCompanyDelete}
+              onCompanyArchive={this.unArchive}
+              setValue={this.setValue}
+            />
+          </div>
+        );
+      }
+
     }
 
   }
