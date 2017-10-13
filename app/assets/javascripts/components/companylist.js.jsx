@@ -1,5 +1,21 @@
 var CompanyList = React.createClass({
 
+  getInitialState() {
+    return {
+      show: 'current'
+    };
+  },
+
+  toggleState(state) {
+    this.setState({
+      show: this.state.show
+    });
+  },
+
+  handleState(e) {
+    this.setState({show: e.target.value}, this.toggleState);
+  },
+
   render() {
 
     var data = this.props.data.reverse()
@@ -41,6 +57,9 @@ var CompanyList = React.createClass({
 
     return (
       <div>
+        <CompanyNav
+          toggle={this.handleState}
+        />
         {companyList}
       </div>
     )
