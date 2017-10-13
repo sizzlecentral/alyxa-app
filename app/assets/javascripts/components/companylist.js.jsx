@@ -6,19 +6,14 @@ var CompanyList = React.createClass({
     };
   },
 
-  current() {
-    this.setState({show: 'current'})
-    console.log(this.state.show);
+  toggleState(state) {
+    this.setState({
+      show: this.state.show
+    });
   },
 
-  archived() {
-    this.setState({show: 'archived'})
-    console.log(this.state.show);
-  },
-
-  all() {
-    this.setState({show: 'all'})
-    console.log(this.state.show);
+  handleState(e) {
+    this.setState({show: e.target.value}, this.toggleState);
   },
 
   render() {
@@ -63,9 +58,7 @@ var CompanyList = React.createClass({
     return (
       <div>
         <CompanyNav
-          current={this.current}
-          archived={this.archived}
-          all={this.all}
+          toggle={this.handleState}
         />
         {companyList}
       </div>

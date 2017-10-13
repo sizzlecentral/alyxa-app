@@ -4,9 +4,9 @@ var CompanyNav = React.createClass({
 
     return (
       <div>
-        <button id='new' onClick={this.props.current}>Current</button>
-        <button id='new' onClick={this.props.archived}>Archived</button>
-        <button id='new' onClick={this.props.all}>All</button>
+        <button id='new' value='current' onClick={this.props.toggle}>Current</button>
+        <button id='new' value='archived' onClick={this.props.toggle}>Archived</button>
+        <button id='new' value='all' onClick={this.props.toggle}>All</button>
       </div>
     )
 
