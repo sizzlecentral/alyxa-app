@@ -100,7 +100,7 @@ var Company = React.createClass({
 
     if (this.state.archived != true && this.state.show != true) {
       return (
-        <div id='company-row'>
+        <div id='company-card'>
           <a href={this.state.url} target='_blank'>
             <div id='company-image'>
               <img src={this.state.image} alt={this.state.name} />
