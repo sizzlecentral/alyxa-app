@@ -39,7 +39,6 @@ var Company = React.createClass({
     e.persist();
     this.setState({archived: false}, function() {
       this.handleCompanyArchive(e);
-      console.log(this.state.archived)
     })
   },
 
