@@ -10,7 +10,6 @@ var CompanyList = React.createClass({
     this.setState({
       shown: this.state.shown
     });
-    console.log(this.state.shown);
   },
 
   handleState(e) {
@@ -90,50 +89,27 @@ var CompanyList = React.createClass({
         }
 
       } else {
-        if (data[index].company.archived === 'true') {
-          return (
-            <div id='company-wrapper' key={data[index].company.id}>
-              <Company
-                data={data}
-                onCompanyEdit={handleCompanyEdit}
-                onCompanyDelete={function() {
-                    deleteCompany(id, index)
-                  }
-                }
-                id={data[index].company.id}
-                name={data[index].company.name}
-                url={data[index].company.url}
-                image={data[index].company.image}
-                archived={data[index].company.archived}
-                editable={data[index].company.editable}
-                show={data[index].company.show}
-                toggle={this.handleState}
-              />
-            </div>
-          )
 
-        } else {
-          return (
-            <div id='company-wrapper' key={data[index].company.id}>
-              <Company
-                data={data}
-                onCompanyEdit={handleCompanyEdit}
-                onCompanyDelete={function() {
-                    deleteCompany(id, index)
-                  }
+        return (
+          <div id='company-wrapper' key={data[index].company.id}>
+            <Company
+              data={data}
+              onCompanyEdit={handleCompanyEdit}
+              onCompanyDelete={function() {
+                  deleteCompany(id, index)
                 }
-                id={data[index].company.id}
-                name={data[index].company.name}
-                url={data[index].company.url}
-                image={data[index].company.image}
-                archived={data[index].company.archived}
-                editable={data[index].company.editable}
-                show={data[index].company.show}
-                toggle={this.handleState}
-              />
-            </div>
-          )
-        }
+              }
+              id={data[index].company.id}
+              name={data[index].company.name}
+              url={data[index].company.url}
+              image={data[index].company.image}
+              archived={data[index].company.archived}
+              editable={data[index].company.editable}
+              show={data[index].company.show}
+              toggle={this.handleState}
+            />
+          </div>
+        )
       }
 
     });

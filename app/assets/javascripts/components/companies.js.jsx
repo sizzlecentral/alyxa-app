@@ -76,8 +76,14 @@ var Companies = React.createClass({
         </div>
 
         <div id='company-list'>
-          <NewCompany onCompanySubmit={this.handleCompanySubmit} />
-          <CompanyList data={this.state.data} onCompanyEdit={this.handleCompanyEdit} onCompanyDelete={this.handleCompanyDelete} />
+          <NewCompany
+            onCompanySubmit={this.handleCompanySubmit}
+          />
+          <CompanyList
+            data={this.state.data}
+            onCompanyEdit={this.handleCompanyEdit}
+            onCompanyDelete={this.handleCompanyDelete}
+          />
         </div>
 
         <div id='footer'>
