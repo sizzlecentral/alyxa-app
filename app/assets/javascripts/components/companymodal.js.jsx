@@ -64,8 +64,6 @@ var Modal = React.createClass({
         );
       }
 
-
-
     } else {
 
       if (this.props.editable === false) {
