@@ -77,7 +77,7 @@ var Modal = React.createClass({
             <a href={this.props.url} target='_blank'>{this.props.url}</a>
             <br />
             <button id='close-modal' onClick={this.props.closeCompany}>Close</button>
-            <button id='edit' onClick={this.props.makeEditable}>Edit</button>
+            <button id='edit' onClick={this.props.onCompanyDelete}>Delete</button>
             <button id='archive' onClick={this.props.onCompanyArchive}>Un-Archive</button>
           </div>
         );
