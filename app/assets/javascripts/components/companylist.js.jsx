@@ -6,14 +6,8 @@ var CompanyList = React.createClass({
     };
   },
 
-  toggleState(state) {
-    this.setState({
-      shown: this.state.shown
-    });
-  },
-
   handleState(e) {
-    this.setState({shown: e.target.value}, this.toggleState);
+    this.setState({shown: e.target.value});
   },
 
   render() {
