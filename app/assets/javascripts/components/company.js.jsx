@@ -46,7 +46,7 @@ var Company = React.createClass({
 
     e.preventDefault();
     var archived = this.state.archived;
-    var id = this.state.id;
+    var id = this.props.id;
 
     this.props.onCompanyEdit({
       id: id,
@@ -63,7 +63,7 @@ var Company = React.createClass({
     var name = this.state.name.trim();
     var url = this.state.url.trim();
     var image = this.state.image.trim();
-    var id = this.state.id;
+    var id = this.props.id;
     var archived = this.state.archived;
     if (!name) {
       return;
@@ -98,7 +98,7 @@ var Company = React.createClass({
 
   render() {
 
-    if (this.state.archived != 'true') {
+    if (this.props.archived != 'true') {
 
       if (this.state.show != true) {
         return (
