@@ -26,7 +26,7 @@ var Companies = React.createClass({
       success: function(data) {
         var newData = that.state.data.concat([data]);
         that.setState({data: newData});
-      }.bind(that),
+      }
     });
   },
 
@@ -44,7 +44,7 @@ var Companies = React.createClass({
       success: function(data) {
         var newData = that.state.data.reverse();
         that.setState({data: newData});
-      }.bind(that),
+      }
     });
   },
 
