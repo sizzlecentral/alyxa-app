@@ -31,30 +31,15 @@ var Company = React.createClass({
   archive(e) {
     e.persist();
     this.setState({archived: true}, function() {
-      this.handleCompanyArchive(e);
+      this.handleCompanyEdit(e);
     })
   },
 
   unArchive(e) {
     e.persist();
     this.setState({archived: false}, function() {
-      this.handleCompanyArchive(e);
+      this.handleCompanyEdit(e);
     })
-  },
-
-  handleCompanyArchive(e) {
-
-    e.preventDefault();
-    var archived = this.state.archived;
-    var id = this.props.id;
-
-    this.props.onCompanyEdit({
-      id: id,
-      archived: archived,
-    });
-
-    this.closeCompany();
-
   },
 
   handleCompanyEdit(e) {
