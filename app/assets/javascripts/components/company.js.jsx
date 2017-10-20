@@ -60,21 +60,13 @@ var Company = React.createClass({
   handleCompanyEdit(e) {
 
     e.preventDefault();
-    var name = this.state.name.trim();
-    var url = this.state.url.trim();
-    var image = this.state.image.trim();
-    var id = this.props.id;
-    var archived = this.state.archived;
-    if (!name) {
-      return;
-    }
 
     this.props.onCompanyEdit({
-      name: name,
-      url: url,
-      image: image,
-      id: id,
-      archived: archived,
+      name: this.state.name,
+      url: this.state.url,
+      image: this.state.image,
+      id: this.props.id,
+      archived: this.state.archived,
     });
 
     this.unMakeEditable();

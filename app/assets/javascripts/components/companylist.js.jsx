@@ -43,8 +43,6 @@ var CompanyList = React.createClass({
                 url={data[index].company.url}
                 image={data[index].company.image}
                 archived={data[index].company.archived}
-                editable={data[index].company.editable}
-                show={data[index].company.show}
                 toggle={this.handleState}
               />
             </div>
@@ -68,8 +66,6 @@ var CompanyList = React.createClass({
                 url={data[index].company.url}
                 image={data[index].company.image}
                 archived={data[index].company.archived}
-                editable={data[index].company.editable}
-                show={data[index].company.show}
                 toggle={this.handleState}
               />
             </div>
@@ -98,8 +94,6 @@ var CompanyList = React.createClass({
               url={data[index].company.url}
               image={data[index].company.image}
               archived={data[index].company.archived}
-              editable={data[index].company.editable}
-              show={data[index].company.show}
               toggle={this.handleState}
             />
           </div>
