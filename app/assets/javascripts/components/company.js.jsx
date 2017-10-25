@@ -86,28 +86,38 @@ var Company = React.createClass({
     this.setState(object);
   },
 
+  cardGuts() {
+    return (
+      <div>
+        <a href={this.state.url} target='_blank'>
+          <div id='company-image'>
+            <img src={this.state.image} alt={this.state.name} />
+          </div>
+          <div id='company-name'>
+            {this.state.name}
+          </div>
+        </a>
+        <div>
+          <button id='view' onClick={this.showCompany}>View Details</button>
+        </div>
+      </div>
+    )
+  },
+
   render() {
 
     if (this.props.archived != 'true') {
 
       if (this.state.show != true) {
+
         return (
           <div id='company-card'>
-            <a href={this.state.url} target='_blank'>
-              <div id='company-image'>
-                <img src={this.state.image} alt={this.state.name} />
-              </div>
-              <div id='company-name'>
-                {this.state.name}
-              </div>
-            </a>
-            <div>
-              <button id='view' onClick={this.showCompany}>View Details</button>
-            </div>
+            {this.cardGuts()}
           </div>
         );
 
       } else {
+
         return (
           <div>
             <Modal
@@ -123,8 +133,9 @@ var Company = React.createClass({
               unMakeEditable={this.unMakeEditable}
               onCompanyEdit={this.handleCompanyEdit}
               onCompanyDelete={this.handleCompanyDelete}
-              onCompanyArchive={this.archive}
               setValue={this.setValue}
+
+              onCompanyArchive={this.archive}
             />
           </div>
         );
@@ -133,23 +144,15 @@ var Company = React.createClass({
     } else {
 
       if (this.state.show != true) {
+
         return (
           <div id='company-card-archive'>
-            <a href={this.state.url} target='_blank'>
-              <div id='company-image'>
-                <img src={this.state.image} alt={this.state.name} />
-              </div>
-              <div id='company-name'>
-                {this.state.name}
-              </div>
-            </a>
-            <div>
-              <button id='view-archive' onClick={this.showCompany}>View Details</button>
-            </div>
+            {this.cardGuts()}
           </div>
         );
 
       } else {
+
         return (
           <div>
             <Modal
@@ -165,8 +168,9 @@ var Company = React.createClass({
               unMakeEditable={this.unMakeEditable}
               onCompanyEdit={this.handleCompanyEdit}
               onCompanyDelete={this.handleCompanyDelete}
-              onCompanyArchive={this.unArchive}
               setValue={this.setValue}
+
+              onCompanyArchive={this.unArchive}
             />
           </div>
         );
