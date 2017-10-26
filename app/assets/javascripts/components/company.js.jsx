@@ -2,11 +2,11 @@ var Company = React.createClass({
 
   getInitialState() {
     return {
-      name:     this.props.name,
-      url:      this.props.url,
-      image:    this.props.image,
       id:       this.props.id,
       archived: this.props.archived,
+      name:     this.props.company.name,
+      url:      this.props.company.url,
+      image:    this.props.company.image,
       editable: false,
       show:     false,
     };
@@ -51,6 +51,7 @@ var Company = React.createClass({
       archived: this.state.archived,
     });
 
+    this.unMakeEditable();
     this.closeCompany();
 
   },
