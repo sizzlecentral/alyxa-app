@@ -66,7 +66,13 @@ var Modal = React.createClass({
           <div id='company-modal'>
             {this.modalGuts()}
             <button id='edit' onClick={this.props.makeEditable}>Edit</button>
-            <button id='archive' onClick={this.props.onCompanyArchive}>Archive</button>
+            <button id='archive'
+              onClick={function(e) {
+                  this.props.onCompanyArchive(e, true)
+                }.bind(this)
+              }
+              >Archive
+            </button>
           </div>
         );
       } else {
@@ -84,13 +90,13 @@ var Modal = React.createClass({
           <div id='company-modal'>
             {this.modalGuts()}
             <button id='delete' onClick={this.props.onCompanyDelete}>Delete</button>
-            <button id='archive' onClick={this.props.onCompanyArchive}>Un-Archive</button>
-          </div>
-        );
-      } else {
-        return (
-          <div>
-            {this.editForm()}
+            <button id='archive'
+              onClick={function(e) {
+                  this.props.onCompanyArchive(e, false)
+                }.bind(this)
+              }
+              >Un-Archive
+            </button>
           </div>
         );
       }

@@ -39,7 +39,7 @@ var CompanyList = React.createClass({
                 onCompanyEdit={handleCompanyEdit}
                 onCompanyArchive={archiveCompany}
                 onCompanyDelete={function() {
-                    deleteCompany(id, index)
+                    deleteCompany(company.id, index)
                   }
                 }
               />
@@ -59,7 +59,7 @@ var CompanyList = React.createClass({
                 onCompanyEdit={handleCompanyEdit}
                 onCompanyArchive={archiveCompany}
                 onCompanyDelete={function() {
-                    deleteCompany(id, index)
+                    deleteCompany(company.id, index)
                   }
                 }
               />
@@ -84,7 +84,7 @@ var CompanyList = React.createClass({
               onCompanyEdit={handleCompanyEdit}
               onCompanyArchive={archiveCompany}
               onCompanyDelete={function() {
-                  deleteCompany(id, index)
+                  deleteCompany(company.id, index)
                 }
               }
             />
