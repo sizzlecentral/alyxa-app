@@ -28,27 +28,13 @@ var Company = React.createClass({
     this.setState({editable: false})
   },
 
-  archive(e) {
-    e.persist();
-    this.setState({archived: true}, function() {
-      this.handleCompanyArchive(e);
-    })
-  },
-
-  unArchive(e) {
-    e.persist();
-    this.setState({archived: false}, function() {
-      this.handleCompanyArchive(e);
-    })
-  },
-
-  handleCompanyArchive(e) {
+  handleCompanyArchive(e, archived) {
 
     e.preventDefault();
 
     this.props.onCompanyArchive({
       id: this.props.id,
-      archived: this.state.archived,
+      archived: archived,
     });
 
     this.unMakeEditable();
@@ -65,7 +51,6 @@ var Company = React.createClass({
       url: this.state.url,
       image: this.state.image,
       id: this.props.id,
-      archived: this.state.archived,
     });
 
     this.unMakeEditable();
@@ -125,10 +110,10 @@ var Company = React.createClass({
               name={this.state.name}
               image={this.state.image}
               url={this.state.url}
-              id={this.state.id}
+              id={this.props.id}
               editable={this.state.editable}
               show={this.state.show}
-              archived={this.state.archived}
+              archived={this.props.archived}
               closeCompany={this.closeCompany}
               makeEditable={this.makeEditable}
               unMakeEditable={this.unMakeEditable}
@@ -136,7 +121,7 @@ var Company = React.createClass({
               onCompanyDelete={this.handleCompanyDelete}
               setValue={this.setValue}
 
-              onCompanyArchive={this.archive}
+              onCompanyArchive={this.handleCompanyArchive}
             />
           </div>
         );
@@ -160,10 +145,10 @@ var Company = React.createClass({
               name={this.state.name}
               image={this.state.image}
               url={this.state.url}
-              id={this.state.id}
+              id={this.props.id}
               editable={this.state.editable}
               show={this.state.show}
-              archived={this.state.archived}
+              archived={this.props.archived}
               closeCompany={this.closeCompany}
               makeEditable={this.makeEditable}
               unMakeEditable={this.unMakeEditable}
@@ -171,7 +156,7 @@ var Company = React.createClass({
               onCompanyDelete={this.handleCompanyDelete}
               setValue={this.setValue}
 
-              onCompanyArchive={this.unArchive}
+              onCompanyArchive={this.handleCompanyArchive}
             />
           </div>
         );

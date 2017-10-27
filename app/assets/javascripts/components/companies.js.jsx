@@ -49,6 +49,7 @@ var Companies = React.createClass({
   },
 
   handleCompanyArchive(company) {
+    console.log(company);
     var that = this
     $.ajax({
       url:      `/companies/${company.id}`,
@@ -61,7 +62,9 @@ var Companies = React.createClass({
       data:      { company: company },
       success: function(data) {
         var newData = that.state.data.reverse();
-        that.setState({data: newData});
+        that.setState({data: newData}, function() {
+          console.log(that.state.data);
+        });
       }
     });
   },
@@ -78,10 +81,10 @@ var Companies = React.createClass({
       },
       data:      { company: { id: id } },
       success: function(data) {
-        var newData = this.state.data;
+        var newData = that.state.data;
         newData.splice(index, 1);
         that.setState({data: newData});
-      }.bind(that),
+      }
     });
   },
 
