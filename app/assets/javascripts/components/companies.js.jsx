@@ -53,30 +53,6 @@ var Companies = React.createClass({
     });
   },
 
-  handleCompanyArchive(company) {
-    console.log(company);
-    var that = this
-    $.ajax({
-      url:      `/companies/${company.id}`,
-      dataType: 'json',
-      type:     'PUT',
-      headers: {
-        'X-Transaction': 'PUT',
-        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      },
-      data:      { company: company },
-      success: function(resData) {
-        var newData = that.state.data.reverse();
-        for (var i = 0; i < newData.length; i++) {
-          if (newData[i].company.id === company.id) {
-            newData.splice(i, 1, resData)
-          }
-        }
-        that.setState({data: newData});
-      }
-    });
-  },
-
   handleCompanyDelete(id, index) {
     var that = this
     $.ajax({
@@ -112,7 +88,6 @@ var Companies = React.createClass({
             data={this.state.data}
             onCompanyEdit={this.handleCompanyEdit}
             onCompanyDelete={this.handleCompanyDelete}
-            onCompanyArchive={this.handleCompanyArchive}
           />
         </div>
 

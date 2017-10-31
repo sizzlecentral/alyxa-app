@@ -15,7 +15,6 @@ var CompanyList = React.createClass({
     var data = this.props.data.reverse()
     var handleCompanyEdit = this.props.onCompanyEdit
     var deleteCompany = this.props.onCompanyDelete
-    var archiveCompany = this.props.onCompanyArchive
     var state = this.state.shown
 
     var companyList = data.map(function(company, index) {
@@ -37,7 +36,6 @@ var CompanyList = React.createClass({
                 id={company.id}
                 archived={company.archived}
                 onCompanyEdit={handleCompanyEdit}
-                onCompanyArchive={archiveCompany}
                 onCompanyDelete={function() {
                     deleteCompany(company.id, index)
                   }
@@ -57,7 +55,6 @@ var CompanyList = React.createClass({
                 id={company.id}
                 archived={company.archived}
                 onCompanyEdit={handleCompanyEdit}
-                onCompanyArchive={archiveCompany}
                 onCompanyDelete={function() {
                     deleteCompany(company.id, index)
                   }
@@ -82,7 +79,6 @@ var CompanyList = React.createClass({
               id={company.id}
               archived={company.archived}
               onCompanyEdit={handleCompanyEdit}
-              onCompanyArchive={archiveCompany}
               onCompanyDelete={function() {
                   deleteCompany(company.id, index)
                 }

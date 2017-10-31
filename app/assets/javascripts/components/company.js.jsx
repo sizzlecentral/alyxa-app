@@ -32,7 +32,7 @@ var Company = React.createClass({
 
     e.preventDefault();
 
-    this.props.onCompanyArchive({
+    this.props.onCompanyEdit({
       id: this.props.id,
       archived: archived,
     });
