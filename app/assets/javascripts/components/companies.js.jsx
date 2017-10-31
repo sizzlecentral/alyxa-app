@@ -41,8 +41,13 @@ var Companies = React.createClass({
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data:      { company: company },
-      success: function(data) {
+      success: function(resData) {
         var newData = that.state.data.reverse();
+        for (var i = 0; i < newData.length; i++) {
+          if (newData[i].company.id === company.id) {
+            newData.splice(i, 1, resData)
+          }
+        }
         that.setState({data: newData});
       }
     });
@@ -60,11 +65,14 @@ var Companies = React.createClass({
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data:      { company: company },
-      success: function(data) {
+      success: function(resData) {
         var newData = that.state.data.reverse();
-        that.setState({data: newData}, function() {
-          console.log(that.state.data);
-        });
+        for (var i = 0; i < newData.length; i++) {
+          if (newData[i].company.id === company.id) {
+            newData.splice(i, 1, resData)
+          }
+        }
+        that.setState({data: newData});
       }
     });
   },
