@@ -42,7 +42,7 @@ var Companies = React.createClass({
       },
       data:      { company: company },
       success: function(resData) {
-        var newData = that.state.data.reverse();
+        var newData = that.state.data
         for (var i = 0; i < newData.length; i++) {
           if (newData[i].company.id === company.id) {
             newData.splice(i, 1, resData)
