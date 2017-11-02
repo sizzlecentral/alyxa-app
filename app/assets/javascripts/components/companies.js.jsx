@@ -80,6 +80,10 @@ var Companies = React.createClass({
           <Header />
         </div>
 
+        <div id='global-modal'>
+          <GlobalModal />
+        </div>
+
         <div id='company-list'>
           <NewCompany
             onCompanySubmit={this.handleCompanySubmit}
