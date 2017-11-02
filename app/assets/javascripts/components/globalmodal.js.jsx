@@ -75,22 +75,26 @@ var GlobalModal = React.createClass({
 
       if (this.props.editable === false) {
         return (
-          <div id='global-modal-box'>
-            {this.modalGuts()}
-            <button id='edit' onClick={this.props.makeEditable}>Edit</button>
-            <button id='archive'
-              onClick={function(e) {
-                  this.props.onCompanyArchive(e, true)
-                }.bind(this)
-              }
-              >Archive
-            </button>
+          <div id='global-modal-background'>
+            <div id='global-modal-box'>
+              {this.modalGuts()}
+              <button id='edit' onClick={this.props.makeEditable}>Edit</button>
+              <button id='archive'
+                onClick={function(e) {
+                    this.props.onCompanyArchive(e, true)
+                  }.bind(this)
+                }
+                >Archive
+              </button>
+            </div>
           </div>
         );
       } else {
         return (
-          <div>
-            {this.editForm()}
+          <div id='global-modal-background'>
+            <div id='global-modal-box'>
+              {this.editForm()}
+            </div>
           </div>
         );
       }
@@ -99,16 +103,18 @@ var GlobalModal = React.createClass({
 
       if (this.props.editable === false) {
         return (
-          <div id='global-modal-box'>
-            {this.modalGuts()}
-            <button id='delete' onClick={this.props.onCompanyDelete}>Delete</button>
-            <button id='archive'
-              onClick={function(e) {
-                  this.props.onCompanyArchive(e, false)
-                }.bind(this)
-              }
-              >Un-Archive
-            </button>
+          <div id='global-modal-background'>
+            <div id='global-modal-box'>
+              {this.modalGuts()}
+              <button id='delete' onClick={this.props.onCompanyDelete}>Delete</button>
+              <button id='archive'
+                onClick={function(e) {
+                    this.props.onCompanyArchive(e, false)
+                  }.bind(this)
+                }
+                >Un-Archive
+              </button>
+            </div>
           </div>
         );
       }

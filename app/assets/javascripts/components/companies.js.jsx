@@ -8,8 +8,17 @@ var Companies = React.createClass({
 
   getInitialState() {
     return {
-      data: this.props.companies
+      data: this.props.companies,
+      show: false,
     }
+  },
+
+  showCompany() {
+    this.setState({show: true})
+  },
+
+  closeCompany() {
+    this.setState({show: false})
   },
 
   handleCompanySubmit(company) {
@@ -73,34 +82,75 @@ var Companies = React.createClass({
   },
 
   render() {
-    return (
-      <div>
 
-        <div id='header'>
-          <Header />
+    if (this.state.show === true) {
+
+      return (
+        <div>
+
+          <div id='header'>
+            <Header />
+          </div>
+
+          <div id='global-modal'>
+            <GlobalModal
+              show={this.state.show}
+              closeCompany={this.closeCompany}
+              onCompanyEdit={this.handleCompanyEdit}
+              onCompanyDelete={this.handleCompanyDelete}
+            />
+          </div>
+
+          <div id='company-list'>
+            <NewCompany
+              onCompanySubmit={this.handleCompanySubmit}
+            />
+            <CompanyList
+              data={this.state.data}
+              showCompany={this.showCompany}
+              onCompanyEdit={this.handleCompanyEdit}
+              onCompanyDelete={this.handleCompanyDelete}
+            />
+          </div>
+
+          <div id='footer'>
+            <Footer />
+          </div>
+
         </div>
+      )
 
-        <div id='global-modal'>
-          <GlobalModal />
+    } else {
+
+      return (
+        <div>
+
+          <div id='header'>
+            <Header />
+          </div>
+
+          <div id='company-list'>
+            <NewCompany
+              onCompanySubmit={this.handleCompanySubmit}
+            />
+            <CompanyList
+              data={this.state.data}
+              showCompany={this.showCompany}
+              onCompanyEdit={this.handleCompanyEdit}
+              onCompanyDelete={this.handleCompanyDelete}
+            />
+          </div>
+
+          <div id='footer'>
+            <Footer />
+          </div>
+
         </div>
+      )
 
-        <div id='company-list'>
-          <NewCompany
-            onCompanySubmit={this.handleCompanySubmit}
-          />
-          <CompanyList
-            data={this.state.data}
-            onCompanyEdit={this.handleCompanyEdit}
-            onCompanyDelete={this.handleCompanyDelete}
-          />
-        </div>
+    }
 
-        <div id='footer'>
-          <Footer />
-        </div>
 
-      </div>
-    )
   }
 
 });

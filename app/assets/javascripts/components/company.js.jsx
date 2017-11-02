@@ -84,7 +84,7 @@ var Company = React.createClass({
           </div>
         </a>
         <div>
-          <button id='view' onClick={this.showCompany}>View Details</button>
+          <button id='view' onClick={this.props.showCompany}>View Details</button>
         </div>
       </div>
     )
