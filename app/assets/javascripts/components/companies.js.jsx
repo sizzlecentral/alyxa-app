@@ -8,17 +8,13 @@ var Companies = React.createClass({
 
   getInitialState() {
     return {
-      data: this.props.companies,
-      show: false,
+      data:     this.props.companies,
+      show:     false,
     }
   },
 
   showCompany() {
     this.setState({show: true})
-  },
-
-  closeCompany() {
-    this.setState({show: false})
   },
 
   handleCompanySubmit(company) {
@@ -94,7 +90,16 @@ var Companies = React.createClass({
 
           <div id='global-modal'>
             <GlobalModal
+
+              name={'Company'}
+              url={'https://www.google.ca'}
+              image={'https://pbs.twimg.com/profile_images/839721704163155970/LI_TRk1z_400x400.jpg'}
+              archived={'false'}
+
+
               show={this.state.show}
+              makeEditable={this.makeEditable}
+              unMakeEditable={this.unMakeEditable}
               closeCompany={this.closeCompany}
               onCompanyEdit={this.handleCompanyEdit}
               onCompanyDelete={this.handleCompanyDelete}

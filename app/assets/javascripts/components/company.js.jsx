@@ -12,66 +12,6 @@ var Company = React.createClass({
     };
   },
 
-  showCompany() {
-    this.setState({show: true})
-  },
-
-  closeCompany() {
-    this.setState({show: false})
-  },
-
-  makeEditable() {
-    this.setState({editable: true})
-  },
-
-  unMakeEditable() {
-    this.setState({editable: false})
-  },
-
-  handleCompanyArchive(e, archived) {
-
-    e.preventDefault();
-
-    this.props.onCompanyEdit({
-      id: this.props.id,
-      archived: archived,
-    });
-
-    this.unMakeEditable();
-    this.closeCompany();
-
-  },
-
-  handleCompanyEdit(e) {
-
-    e.preventDefault();
-
-    this.props.onCompanyEdit({
-      name: this.state.name,
-      url: this.state.url,
-      image: this.state.image,
-      id: this.props.id,
-    });
-
-    this.unMakeEditable();
-    this.closeCompany();
-
-  },
-
-  handleCompanyDelete(e) {
-
-    e.preventDefault();
-
-    this.props.onCompanyDelete();
-
-  },
-
-  setValue(field, event) {
-    var object = {};
-    object[field] = event.target.value;
-    this.setState(object);
-  },
-
   cardGuts() {
     return (
       <div>
@@ -106,7 +46,7 @@ var Company = React.createClass({
 
         return (
           <div>
-            <Modal
+            <GlobalModal
               name={this.state.name}
               image={this.state.image}
               url={this.state.url}
@@ -141,7 +81,7 @@ var Company = React.createClass({
 
         return (
           <div>
-            <Modal
+            <GlobalModal
               name={this.state.name}
               image={this.state.image}
               url={this.state.url}

@@ -1,20 +1,74 @@
 var GlobalModal = React.createClass({
 
-  getDefaultProps() {
+  getInitialState() {
     return {
-      id:       '',
-      archived: '',
-      name:     '',
-      url:      '',
-      image:    '',
+      name:     this.props.name,
+      url:      this.props.url,
+      image:    this.props.image,
       editable: false,
       show:     true,
-    };
+    }
+  },
+
+  closeCompany() {
+    this.setState({show: false})
+  },
+
+  makeEditable() {
+    this.setState({editable: true})
+  },
+
+  unMakeEditable() {
+    this.setState({editable: false})
+  },
+
+  handleCompanyArchive(e, archived) {
+
+    e.preventDefault();
+
+    this.props.onCompanyEdit({
+      id: this.props.id,
+      archived: archived,
+    });
+
+    this.unMakeEditable();
+    this.closeCompany();
+
+  },
+
+  handleCompanyEdit(e) {
+
+    e.preventDefault();
+
+    this.props.onCompanyEdit({
+      id: this.props.id,
+      name: this.state.name,
+      url: this.state.url,
+      image: this.state.image,
+    });
+
+    this.unMakeEditable();
+    this.closeCompany();
+
+  },
+
+  handleCompanyDelete(e) {
+
+    e.preventDefault();
+
+    this.props.onCompanyDelete();
+
+  },
+
+  setValue(field, event) {
+    var object = {};
+    object[field] = event.target.value;
+    this.setState(object);
   },
 
   editForm() {
     return (
-      <form id='edit-company-form' onSubmit={this.props.onCompanyEdit}>
+      <form id='edit-company-form' onSubmit={this.handleCompanyEdit}>
         <h3>Edit Company #{this.props.id}</h3>
         <br />
 
@@ -22,7 +76,7 @@ var GlobalModal = React.createClass({
         <FormInput
           value={this.props.name}
           text={this.props.name}
-          onChange={this.props.setValue.bind(null, 'name')}
+          onChange={this.setValue.bind(null, 'name')}
         />
         <br />
 
@@ -30,7 +84,7 @@ var GlobalModal = React.createClass({
         <FormInput
           value={this.props.url}
           text={this.props.url}
-          onChange={this.props.setValue.bind(null, 'url')}
+          onChange={this.setValue.bind(null, 'url')}
         />
         <br />
 
@@ -38,14 +92,14 @@ var GlobalModal = React.createClass({
         <FormInput
           value={this.props.image}
           text={this.props.image}
-          onChange={this.props.setValue.bind(null, 'image')}
+          onChange={this.setValue.bind(null, 'image')}
         />
         <br />
 
         <button id='submit' type='submit' value='Submit'>Save Changes</button>
         <br />
         <br />
-        <center><a onClick={this.props.unMakeEditable}>Cancel</a></center>
+        <center><a onClick={this.unMakeEditable}>Cancel</a></center>
       </form>
     )
   },
@@ -60,7 +114,7 @@ var GlobalModal = React.createClass({
         <h1>{this.props.name}</h1>
         <a href={this.props.url} target='_blank'>{this.props.url}</a>
         <br />
-        <button id='close-modal' onClick={this.props.closeCompany}>Close</button>
+        <button id='close-modal' onClick={this.closeCompany}>Close</button>
       </div>
     )
   },
@@ -78,10 +132,10 @@ var GlobalModal = React.createClass({
           <div id='global-modal-background'>
             <div id='global-modal-box'>
               {this.modalGuts()}
-              <button id='edit' onClick={this.props.makeEditable}>Edit</button>
+              <button id='edit' onClick={this.makeEditable}>Edit</button>
               <button id='archive'
                 onClick={function(e) {
-                    this.props.onCompanyArchive(e, true)
+                    this.handleCompanyArchive(e, true)
                   }.bind(this)
                 }
                 >Archive
@@ -106,10 +160,10 @@ var GlobalModal = React.createClass({
           <div id='global-modal-background'>
             <div id='global-modal-box'>
               {this.modalGuts()}
-              <button id='delete' onClick={this.props.onCompanyDelete}>Delete</button>
+              <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
               <button id='archive'
                 onClick={function(e) {
-                    this.props.onCompanyArchive(e, false)
+                    this.handleCompanyArchive(e, false)
                   }.bind(this)
                 }
                 >Un-Archive
