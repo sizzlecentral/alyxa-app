@@ -12,6 +12,22 @@ var Company = React.createClass({
     };
   },
 
+  showCompany() {
+    this.setState({show: true})
+  },
+
+  closeCompany() {
+    this.setState({show: false})
+  },
+
+  makeEditable() {
+    this.setState({editable: true})
+  },
+
+  unMakeEditable() {
+    this.setState({editable: false})
+  },
+
   cardGuts() {
     return (
       <div>
@@ -24,7 +40,7 @@ var Company = React.createClass({
           </div>
         </a>
         <div>
-          <button id='view' onClick={this.props.showCompany}>View Details</button>
+          <button id='view' onClick={this.showCompany}>View Details</button>
         </div>
       </div>
     )
@@ -57,11 +73,6 @@ var Company = React.createClass({
               closeCompany={this.closeCompany}
               makeEditable={this.makeEditable}
               unMakeEditable={this.unMakeEditable}
-              onCompanyEdit={this.handleCompanyEdit}
-              onCompanyDelete={this.handleCompanyDelete}
-              setValue={this.setValue}
-
-              onCompanyArchive={this.handleCompanyArchive}
             />
           </div>
         );
@@ -92,11 +103,6 @@ var Company = React.createClass({
               closeCompany={this.closeCompany}
               makeEditable={this.makeEditable}
               unMakeEditable={this.unMakeEditable}
-              onCompanyEdit={this.handleCompanyEdit}
-              onCompanyDelete={this.handleCompanyDelete}
-              setValue={this.setValue}
-
-              onCompanyArchive={this.handleCompanyArchive}
             />
           </div>
         );

@@ -13,10 +13,6 @@ var Companies = React.createClass({
     }
   },
 
-  showCompany() {
-    this.setState({show: true})
-  },
-
   handleCompanySubmit(company) {
     var that = this
     $.ajax({
@@ -90,17 +86,6 @@ var Companies = React.createClass({
 
           <div id='global-modal'>
             <GlobalModal
-
-              name={'Company'}
-              url={'https://www.google.ca'}
-              image={'https://pbs.twimg.com/profile_images/839721704163155970/LI_TRk1z_400x400.jpg'}
-              archived={'false'}
-
-
-              show={this.state.show}
-              makeEditable={this.makeEditable}
-              unMakeEditable={this.unMakeEditable}
-              closeCompany={this.closeCompany}
               onCompanyEdit={this.handleCompanyEdit}
               onCompanyDelete={this.handleCompanyDelete}
             />

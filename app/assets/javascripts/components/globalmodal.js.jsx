@@ -5,21 +5,9 @@ var GlobalModal = React.createClass({
       name:     this.props.name,
       url:      this.props.url,
       image:    this.props.image,
-      editable: false,
-      show:     true,
+      editable: this.props.editable,
+      show:     this.props.show,
     }
-  },
-
-  closeCompany() {
-    this.setState({show: false})
-  },
-
-  makeEditable() {
-    this.setState({editable: true})
-  },
-
-  unMakeEditable() {
-    this.setState({editable: false})
   },
 
   handleCompanyArchive(e, archived) {
@@ -31,8 +19,8 @@ var GlobalModal = React.createClass({
       archived: archived,
     });
 
-    this.unMakeEditable();
-    this.closeCompany();
+    this.props.unMakeEditable();
+    this.props.closeCompany();
 
   },
 
@@ -47,8 +35,8 @@ var GlobalModal = React.createClass({
       image: this.state.image,
     });
 
-    this.unMakeEditable();
-    this.closeCompany();
+    this.props.unMakeEditable();
+    this.props.closeCompany();
 
   },
 
@@ -99,7 +87,7 @@ var GlobalModal = React.createClass({
         <button id='submit' type='submit' value='Submit'>Save Changes</button>
         <br />
         <br />
-        <center><a onClick={this.unMakeEditable}>Cancel</a></center>
+        <center><a onClick={this.props.unMakeEditable}>Cancel</a></center>
       </form>
     )
   },
@@ -114,7 +102,7 @@ var GlobalModal = React.createClass({
         <h1>{this.props.name}</h1>
         <a href={this.props.url} target='_blank'>{this.props.url}</a>
         <br />
-        <button id='close-modal' onClick={this.closeCompany}>Close</button>
+        <button id='close-modal' onClick={this.props.closeCompany}>Close</button>
       </div>
     )
   },
@@ -132,7 +120,7 @@ var GlobalModal = React.createClass({
           <div id='global-modal-background'>
             <div id='global-modal-box'>
               {this.modalGuts()}
-              <button id='edit' onClick={this.makeEditable}>Edit</button>
+              <button id='edit' onClick={this.props.makeEditable}>Edit</button>
               <button id='archive'
                 onClick={function(e) {
                     this.handleCompanyArchive(e, true)
