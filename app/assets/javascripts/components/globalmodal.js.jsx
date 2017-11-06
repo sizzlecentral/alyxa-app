@@ -23,13 +23,11 @@ var GlobalModal = React.createClass({
     })
   },
 
-  closeCompany(e){
-    this.props.closeCompany(e.target.value)
+  closeCompany(){
+    this.props.closeCompany(this.props.id)
   },
 
   handleCompanyArchive(e, archived) {
-
-    console.log(e);
 
     e.preventDefault();
 
@@ -63,7 +61,10 @@ var GlobalModal = React.createClass({
 
     e.preventDefault();
 
-    this.props.onCompanyDelete();
+    this.props.onCompanyDelete(this.props.id, this.props.companyIndex)
+
+    this.unMakeEditable();
+    this.props.closeCompany(this.props.id);
 
   },
 
@@ -121,7 +122,7 @@ var GlobalModal = React.createClass({
         <h1>{this.props.name}</h1>
         <a href={this.props.url} target='_blank'>{this.props.url}</a>
         <br />
-        <button id='close-modal' value={this.props.id} onClick={this.closeCompany}>Close</button>
+        <button id='close-modal' onClick={this.closeCompany}>Close</button>
       </div>
     )
   },

@@ -94,9 +94,11 @@ var Companies = React.createClass({
 
       var newData = this.state.data
       var currentCompany = {}
+      var companyIndex = undefined
       for (var i = 0; i < newData.length; i++) {
         if (newData[i].company.id === this.state.currentCompanyId) {
           currentCompany = newData[i].company
+          companyIndex = i
         }
       }
 
@@ -110,6 +112,7 @@ var Companies = React.createClass({
           <div id='global-modal'>
             <GlobalModal
               id={currentCompany.id}
+              companyIndex={companyIndex}
               name={currentCompany.name}
               url={currentCompany.url}
               image={currentCompany.image}
