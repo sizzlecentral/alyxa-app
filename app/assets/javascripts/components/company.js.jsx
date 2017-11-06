@@ -7,69 +7,11 @@ var Company = React.createClass({
       name:     this.props.company.name,
       url:      this.props.company.url,
       image:    this.props.company.image,
-      editable: false,
-      show:     false,
     };
   },
 
-  showCompany() {
-    this.setState({show: true})
-  },
-
-  closeCompany() {
-    this.setState({show: false})
-  },
-
-  makeEditable() {
-    this.setState({editable: true})
-  },
-
-  unMakeEditable() {
-    this.setState({editable: false})
-  },
-
-  handleCompanyArchive(e, archived) {
-
-    e.preventDefault();
-
-    this.props.onCompanyEdit({
-      id: this.props.id,
-      archived: archived,
-    });
-
-    this.unMakeEditable();
-    this.closeCompany();
-
-  },
-
-  handleCompanyEdit(e) {
-
-    e.preventDefault();
-
-    this.props.onCompanyEdit({
-      name: this.state.name,
-      url: this.state.url,
-      image: this.state.image,
-      id: this.props.id,
-    });
-
-    this.unMakeEditable();
-    this.closeCompany();
-
-  },
-
-  handleCompanyDelete(e) {
-
-    e.preventDefault();
-
-    this.props.onCompanyDelete();
-
-  },
-
-  setValue(field, event) {
-    var object = {};
-    object[field] = event.target.value;
-    this.setState(object);
+  sendCompanyId(e){
+    this.props.showCompany(e.target.value)
   },
 
   cardGuts() {
@@ -84,7 +26,7 @@ var Company = React.createClass({
           </div>
         </a>
         <div>
-          <button id='view' onClick={this.showCompany}>View Details</button>
+          <button id='view' value={this.props.id} onClick={this.sendCompanyId}>View Details</button>
         </div>
       </div>
     )
@@ -94,73 +36,19 @@ var Company = React.createClass({
 
     if (this.props.archived != 'true') {
 
-      if (this.state.show != true) {
-
-        return (
-          <div id='company-card'>
-            {this.cardGuts()}
-          </div>
-        );
-
-      } else {
-
-        return (
-          <div>
-            <Modal
-              name={this.state.name}
-              image={this.state.image}
-              url={this.state.url}
-              id={this.props.id}
-              editable={this.state.editable}
-              show={this.state.show}
-              archived={this.props.archived}
-              closeCompany={this.closeCompany}
-              makeEditable={this.makeEditable}
-              unMakeEditable={this.unMakeEditable}
-              onCompanyEdit={this.handleCompanyEdit}
-              onCompanyDelete={this.handleCompanyDelete}
-              setValue={this.setValue}
-
-              onCompanyArchive={this.handleCompanyArchive}
-            />
-          </div>
-        );
-      }
+      return (
+        <div id='company-card'>
+          {this.cardGuts()}
+        </div>
+      );
 
     } else {
 
-      if (this.state.show != true) {
-
-        return (
-          <div id='company-card-archive'>
-            {this.cardGuts()}
-          </div>
-        );
-
-      } else {
-
-        return (
-          <div>
-            <Modal
-              name={this.state.name}
-              image={this.state.image}
-              url={this.state.url}
-              id={this.props.id}
-              editable={this.state.editable}
-              show={this.state.show}
-              archived={this.props.archived}
-              closeCompany={this.closeCompany}
-              makeEditable={this.makeEditable}
-              unMakeEditable={this.unMakeEditable}
-              onCompanyEdit={this.handleCompanyEdit}
-              onCompanyDelete={this.handleCompanyDelete}
-              setValue={this.setValue}
-
-              onCompanyArchive={this.handleCompanyArchive}
-            />
-          </div>
-        );
-      }
+      return (
+        <div id='company-card-archive'>
+          {this.cardGuts()}
+        </div>
+      );
 
     }
 
