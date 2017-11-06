@@ -109,6 +109,7 @@ var Companies = React.createClass({
 
           <div id='global-modal'>
             <GlobalModal
+              id={currentCompany.id}
               name={currentCompany.name}
               url={currentCompany.url}
               image={currentCompany.image}

@@ -2,6 +2,7 @@ var GlobalModal = React.createClass({
 
   getInitialState() {
     return {
+      id: this.props.id,
       name: this.props.name,
       url: this.props.url,
       image: this.props.image,
@@ -28,6 +29,8 @@ var GlobalModal = React.createClass({
 
   handleCompanyArchive(e, archived) {
 
+    console.log(e);
+
     e.preventDefault();
 
     this.props.onCompanyEdit({
@@ -35,8 +38,8 @@ var GlobalModal = React.createClass({
       archived: archived,
     });
 
-    this.props.unMakeEditable();
-    this.props.closeCompany();
+    this.unMakeEditable();
+    this.props.closeCompany(this.props.id);
 
   },
 
@@ -51,8 +54,8 @@ var GlobalModal = React.createClass({
       image: this.state.image,
     });
 
-    this.props.unMakeEditable();
-    this.props.closeCompany();
+    this.unMakeEditable();
+    this.props.closeCompany(this.props.id);
 
   },
 
