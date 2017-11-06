@@ -40,7 +40,7 @@ var CompanyList = React.createClass({
           )
         }
 
-      } else if (state === 'archived') {
+      } else if (status === 'archived') {
 
         if (company.archived === 'true') {
           return (
