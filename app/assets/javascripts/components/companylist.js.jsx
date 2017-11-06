@@ -2,25 +2,25 @@ var CompanyList = React.createClass({
 
   getInitialState() {
     return {
-      shown: 'current'
+      status: 'current'
     };
   },
 
   handleState(e) {
-    this.setState({shown: e.target.value});
+    this.setState({status: e.target.value});
   },
 
   render() {
 
     var data = this.props.data.reverse()
     var showCompany = this.props.showCompany
-    var state = this.state.shown
+    var status = this.state.status
 
     var companyList = data.map(function(company, index) {
 
       var company = data[index].company
 
-      if (state === 'current') {
+      if (status === 'current') {
 
         if (company.archived === 'true') {
           return (

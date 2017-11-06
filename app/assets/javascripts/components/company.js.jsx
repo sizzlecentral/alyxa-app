@@ -2,11 +2,11 @@ var Company = React.createClass({
 
   getInitialState() {
     return {
-      id:       this.props.id,
+      id: this.props.id,
       archived: this.props.archived,
-      name:     this.props.company.name,
-      url:      this.props.company.url,
-      image:    this.props.company.image,
+      name: this.props.company.name,
+      url: this.props.company.url,
+      image: this.props.company.image,
     };
   },
 

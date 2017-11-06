@@ -8,21 +8,24 @@ var Companies = React.createClass({
 
   getInitialState() {
     return {
-      data:             this.props.companies,
-      show:             false,
+      data: this.props.companies,
+      showModal: false,
       currentCompanyId: undefined,
     }
   },
 
   showCompany(companyId) {
     this.setState({
-      show:             true,
+      showModal: true,
       currentCompanyId: companyId,
     })
   },
 
-  closeCompany() {
-    this.setState({show: false})
+  closeCompany(companyId) {
+    this.setState({
+      showModal: false,
+      currentCompanyId: companyId,
+    })
   },
 
   makeEditable() {
@@ -95,7 +98,7 @@ var Companies = React.createClass({
 
   render() {
 
-    if (this.state.show === true) {
+    if (this.state.showModal === true) {
 
       var newData = this.state.data
       var currentCompany = {}
@@ -118,7 +121,8 @@ var Companies = React.createClass({
               url={currentCompany.url}
               image={currentCompany.image}
               editable={currentCompany.editable}
-              show={this.state.show}
+              showModal={this.state.showModal}
+              closeCompany={this.closeCompany}
               onCompanyEdit={this.handleCompanyEdit}
               onCompanyDelete={this.handleCompanyDelete}
             />

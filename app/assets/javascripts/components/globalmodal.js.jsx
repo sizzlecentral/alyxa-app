@@ -2,12 +2,16 @@ var GlobalModal = React.createClass({
 
   getInitialState() {
     return {
-      name:     this.props.name,
-      url:      this.props.url,
-      image:    this.props.image,
+      name: this.props.name,
+      url: this.props.url,
+      image: this.props.image,
       editable: this.props.editable,
-      show:     this.props.show,
+      showModal: this.props.showModal,
     }
+  },
+
+  sendCompanyId(e){
+    this.props.closeCompany(e.target.value)
   },
 
   handleCompanyArchive(e, archived) {
@@ -87,7 +91,7 @@ var GlobalModal = React.createClass({
         <button id='submit' type='submit' value='Submit'>Save Changes</button>
         <br />
         <br />
-        <center><a onClick={this.props.unMakeEditable}>Cancel</a></center>
+        <center><a value={this.props.id} onClick={this.sendCompanyId}>Cancel</a></center>
       </form>
     )
   },
@@ -102,14 +106,14 @@ var GlobalModal = React.createClass({
         <h1>{this.props.name}</h1>
         <a href={this.props.url} target='_blank'>{this.props.url}</a>
         <br />
-        <button id='close-modal' onClick={this.props.closeCompany}>Close</button>
+        <button id='close-modal' value={this.props.id} onClick={this.sendCompanyId}>Close</button>
       </div>
     )
   },
 
   render() {
 
-    if (!this.props.show) {
+    if (!this.props.showModal) {
       return null;
     }
 
