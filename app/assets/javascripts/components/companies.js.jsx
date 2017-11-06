@@ -28,14 +28,6 @@ var Companies = React.createClass({
     })
   },
 
-  makeEditable() {
-    this.setState({editable: true})
-  },
-
-  unMakeEditable() {
-    this.setState({editable: false})
-  },
-
   handleCompanySubmit(company) {
     var that = this
     $.ajax({

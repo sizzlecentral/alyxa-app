@@ -5,12 +5,24 @@ var GlobalModal = React.createClass({
       name: this.props.name,
       url: this.props.url,
       image: this.props.image,
-      editable: this.props.editable,
       showModal: this.props.showModal,
+      editable: false,
     }
   },
 
-  sendCompanyId(e){
+  makeEditable() {
+    this.setState({
+      editable: true,
+    })
+  },
+
+  unMakeEditable() {
+    this.setState({
+      editable: false,
+    })
+  },
+
+  closeCompany(e){
     this.props.closeCompany(e.target.value)
   },
 
@@ -91,7 +103,7 @@ var GlobalModal = React.createClass({
         <button id='submit' type='submit' value='Submit'>Save Changes</button>
         <br />
         <br />
-        <center><a value={this.props.id} onClick={this.sendCompanyId}>Cancel</a></center>
+        <center><a value={this.props.id} onClick={this.unMakeEditable}>Cancel</a></center>
       </form>
     )
   },
@@ -106,7 +118,7 @@ var GlobalModal = React.createClass({
         <h1>{this.props.name}</h1>
         <a href={this.props.url} target='_blank'>{this.props.url}</a>
         <br />
-        <button id='close-modal' value={this.props.id} onClick={this.sendCompanyId}>Close</button>
+        <button id='close-modal' value={this.props.id} onClick={this.closeCompany}>Close</button>
       </div>
     )
   },
@@ -119,12 +131,12 @@ var GlobalModal = React.createClass({
 
     if (this.props.archived != 'true') {
 
-      if (this.props.editable === false) {
+      if (this.state.editable === false) {
         return (
           <div id='global-modal-background'>
             <div id='global-modal-box'>
               {this.modalGuts()}
-              <button id='edit' onClick={this.props.makeEditable}>Edit</button>
+              <button id='edit' onClick={this.makeEditable}>Edit</button>
               <button id='archive'
                 onClick={function(e) {
                     this.handleCompanyArchive(e, true)
@@ -147,7 +159,7 @@ var GlobalModal = React.createClass({
 
     } else {
 
-      if (this.props.editable === false) {
+      if (this.state.editable === false) {
         return (
           <div id='global-modal-background'>
             <div id='global-modal-box'>
