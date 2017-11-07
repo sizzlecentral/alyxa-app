@@ -109,6 +109,12 @@ var Companies = React.createClass({
             <Header />
           </div>
 
+          <div id='global-modal-background'>
+            <GlobalModalBackground
+              showModal={this.state.showModal}
+            />
+          </div>
+
           <div id='global-modal'>
             <GlobalModal
               id={currentCompany.id}

@@ -137,26 +137,22 @@ var GlobalModal = React.createClass({
 
       if (this.state.editable === false) {
         return (
-          <div id='global-modal-background'>
-            <div id='global-modal-box'>
-              {this.modalGuts()}
-              <button id='edit' onClick={this.makeEditable}>Edit</button>
-              <button id='archive'
-                onClick={function(e) {
-                    this.handleCompanyArchive(e, true)
-                  }.bind(this)
-                }
-                >Archive
-              </button>
-            </div>
+          <div id='global-modal-box'>
+            {this.modalGuts()}
+            <button id='edit' onClick={this.makeEditable}>Edit</button>
+            <button id='archive'
+              onClick={function(e) {
+                  this.handleCompanyArchive(e, true)
+                }.bind(this)
+              }
+              >Archive
+            </button>
           </div>
         );
       } else {
         return (
-          <div id='global-modal-background'>
-            <div id='global-modal-box'>
-              {this.editForm()}
-            </div>
+          <div id='global-modal-box'>
+            {this.editForm()}
           </div>
         );
       }
@@ -165,18 +161,16 @@ var GlobalModal = React.createClass({
 
       if (this.state.editable === false) {
         return (
-          <div id='global-modal-background'>
-            <div id='global-modal-box'>
-              {this.modalGuts()}
-              <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
-              <button id='archive'
-                onClick={function(e) {
-                    this.handleCompanyArchive(e, false)
-                  }.bind(this)
-                }
-                >Un-Archive
-              </button>
-            </div>
+          <div id='global-modal-box'>
+            {this.modalGuts()}
+            <button id='delete' onClick={this.handleCompanyDelete}>Delete</button>
+            <button id='archive'
+              onClick={function(e) {
+                  this.handleCompanyArchive(e, false)
+                }.bind(this)
+              }
+              >Un-Archive
+            </button>
           </div>
         );
       }
