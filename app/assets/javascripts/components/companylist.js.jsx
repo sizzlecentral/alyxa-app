@@ -31,9 +31,11 @@ var CompanyList = React.createClass({
           return (
             <div id='company-wrapper' key={company.id}>
               <Company
-                company={company}
                 id={company.id}
                 archived={company.archived}
+                name={company.name}
+                url={company.url}
+                image={company.image}
                 showCompany={showCompany}
               />
             </div>
@@ -46,9 +48,11 @@ var CompanyList = React.createClass({
           return (
             <div id='company-wrapper' key={company.id}>
               <Company
-                company={company}
                 id={company.id}
                 archived={company.archived}
+                name={company.name}
+                url={company.url}
+                image={company.image}
                 showCompany={showCompany}
               />
             </div>
@@ -66,9 +70,11 @@ var CompanyList = React.createClass({
         return (
           <div id='company-wrapper' key={company.id}>
             <Company
-              company={company}
               id={company.id}
               archived={company.archived}
+              name={company.name}
+              url={company.url}
+              image={company.image}
               showCompany={showCompany}
             />
           </div>

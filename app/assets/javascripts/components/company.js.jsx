@@ -4,9 +4,9 @@ var Company = React.createClass({
     return {
       id: this.props.id,
       archived: this.props.archived,
-      name: this.props.company.name,
-      url: this.props.company.url,
-      image: this.props.company.image,
+      name: this.props.name,
+      url: this.props.url,
+      image: this.props.image,
     };
   },
 
