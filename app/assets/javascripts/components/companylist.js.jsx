@@ -12,7 +12,7 @@ var CompanyList = React.createClass({
 
   render() {
 
-    var data = this.props.data.reverse()
+    var data = this.props.data
     var showCompany = this.props.showCompany
     var status = this.state.status
 
