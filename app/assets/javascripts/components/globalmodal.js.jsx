@@ -82,24 +82,24 @@ var GlobalModal = React.createClass({
 
         <p>Company name.</p>
         <FormInput
-          value={this.props.name}
-          text={this.props.name}
+          value={this.state.name}
+          text={this.state.name}
           onChange={this.setValue.bind(null, 'name')}
         />
         <br />
 
         <p>Link to company website.</p>
         <FormInput
-          value={this.props.url}
-          text={this.props.url}
+          value={this.state.url}
+          text={this.state.url}
           onChange={this.setValue.bind(null, 'url')}
         />
         <br />
 
         <p>Link to company image. File must be at least 240px wide by 150px high.</p>
         <FormInput
-          value={this.props.image}
-          text={this.props.image}
+          value={this.state.image}
+          text={this.state.image}
           onChange={this.setValue.bind(null, 'image')}
         />
         <br />
