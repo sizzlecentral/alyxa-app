@@ -17,12 +17,12 @@ var Company = React.createClass({
   cardGuts() {
     return (
       <div>
-        <a href={this.state.url} target='_blank'>
+        <a href={this.props.url} target='_blank'>
           <div id='company-image'>
-            <img src={this.state.image} alt={this.state.name} />
+            <img src={this.props.image} alt={this.props.name} />
           </div>
           <div id='company-name'>
-            {this.state.name}
+            {this.props.name}
           </div>
         </a>
         <div>
