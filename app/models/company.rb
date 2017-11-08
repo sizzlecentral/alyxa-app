@@ -7,7 +7,6 @@ class Company < ApplicationRecord
         "name" => self.name.to_s,
         "url" => self.url.to_s,
         "image" => self.image.to_s,
-        "editable" => self.editable.to_s,
         "archived" => self.archived.to_s
       }
     }
