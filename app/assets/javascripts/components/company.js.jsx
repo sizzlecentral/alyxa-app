@@ -14,31 +14,23 @@ var Company = React.createClass({
     this.props.showCompany(e.target.value)
   },
 
-  cardGuts() {
-    return (
-      <div>
-        <a href={this.props.url} target='_blank'>
-          <div id='company-image'>
-            <img src={this.props.image} alt={this.props.name} />
-          </div>
-          <div id='company-name'>
-            {this.props.name}
-          </div>
-        </a>
-        <div>
-          <button id='view' value={this.props.id} onClick={this.sendCompanyId}>View Details</button>
-        </div>
-      </div>
-    )
-  },
-
   render() {
 
     if (this.props.archived != 'true') {
 
       return (
         <div id='company-card'>
-          {this.cardGuts()}
+          <a href={this.props.url} target='_blank'>
+            <div id='company-image'>
+              <img src={this.props.image} alt={this.props.name} />
+            </div>
+            <div id='company-name'>
+              {this.props.name}
+            </div>
+          </a>
+          <div>
+            <button id='view' value={this.props.id} onClick={this.sendCompanyId}>View Details</button>
+          </div>
         </div>
       );
 
@@ -46,7 +38,17 @@ var Company = React.createClass({
 
       return (
         <div id='company-card-archive'>
-          {this.cardGuts()}
+          <a href={this.props.url} target='_blank'>
+            <div id='company-image'>
+              <img src={this.props.image} alt={this.props.name} />
+            </div>
+            <div id='company-name'>
+              {this.props.name}
+            </div>
+          </a>
+          <div>
+            <button id='view-archive' value={this.props.id} onClick={this.sendCompanyId}>View Details</button>
+          </div>
         </div>
       );
 
