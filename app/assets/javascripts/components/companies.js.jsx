@@ -39,8 +39,8 @@ var Companies = React.createClass({
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data:      { company: company },
-      success: function(data) {
-        var newData = that.state.data.concat([data]);
+      success: function(resData) {
+        var newData = that.state.data.concat([resData]);
         that.setState({data: newData});
       }
     });
@@ -80,7 +80,7 @@ var Companies = React.createClass({
         'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
       },
       data:      { company: { id: id } },
-      success: function(data) {
+      success: function() {
         var newData = that.state.data;
         newData.splice(index, 1);
         that.setState({data: newData});
