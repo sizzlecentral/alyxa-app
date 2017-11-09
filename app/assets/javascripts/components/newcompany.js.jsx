@@ -39,6 +39,7 @@ var NewCompany= React.createClass({
     });
 
     this.closeForm();
+    this.props.handleArchivedStatus('current');
 
   },
 

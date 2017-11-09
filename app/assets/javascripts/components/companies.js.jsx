@@ -11,7 +11,13 @@ var Companies = React.createClass({
       data: this.props.companies,
       showModal: false,
       currentCompanyId: undefined,
+      archivedStatus: 'current',
     }
+  },
+
+  handleArchivedStatus(archivedStatus) {
+    console.log(archivedStatus);
+    this.setState({archivedStatus: archivedStatus});
   },
 
   showCompany(companyId) {
@@ -133,10 +139,14 @@ var Companies = React.createClass({
           <div id='company-list'>
             <NewCompany
               onCompanySubmit={this.handleCompanySubmit}
+              archivedStatus={this.state.archivedStatus}
+              handleArchivedStatus={this.handleArchivedStatus}
             />
             <CompanyList
               data={this.state.data}
               showCompany={this.showCompany}
+              archivedStatus={this.state.archivedStatus}
+              handleArchivedStatus={this.handleArchivedStatus}
             />
           </div>
 
@@ -159,10 +169,14 @@ var Companies = React.createClass({
           <div id='company-list'>
             <NewCompany
               onCompanySubmit={this.handleCompanySubmit}
+              archivedStatus={this.state.archivedStatus}
+              handleArchivedStatus={this.handleArchivedStatus}
             />
             <CompanyList
               data={this.state.data}
               showCompany={this.showCompany}
+              archivedStatus={this.state.archivedStatus}
+              handleArchivedStatus={this.handleArchivedStatus}
             />
           </div>
 

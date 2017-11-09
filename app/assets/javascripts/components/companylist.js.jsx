@@ -1,20 +1,10 @@
 var CompanyList = React.createClass({
 
-  getInitialState() {
-    return {
-      status: 'current'
-    };
-  },
-
-  handleState(e) {
-    this.setState({status: e.target.value});
-  },
-
   render() {
 
     var data = this.props.data
     var showCompany = this.props.showCompany
-    var status = this.state.status
+    var status = this.props.archivedStatus
 
     var companyList = data.map(function(company, index) {
 
@@ -86,7 +76,7 @@ var CompanyList = React.createClass({
     return (
       <div>
         <CompanyNav
-          toggle={this.handleState}
+          toggle={this.props.handleArchivedStatus}
         />
         {companyList}
       </div>
