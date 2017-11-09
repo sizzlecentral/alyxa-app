@@ -31,11 +31,15 @@ button {
   border: none;
 }
 
+button#new-active {
+  background-color: #919EAB;
+}
+
 button:hover {
   background-color: #C4CDD5;
 }
 
-input, button#submit, button#new, button#view, button#view-archive, button#close-modal {
+input, button#submit, button#new, button#new-active, button#view, button#view-archive, button#close-modal {
   padding: 1rem;
   font-size: 1rem;
 }
@@ -48,7 +52,7 @@ button#view-archive {
   background-color: #FEAF9A;
 }
 
-button#new {
+button#new, button#new-active, {
   margin-bottom: .5rem;
   font-size: 1rem;
 }

@@ -77,6 +77,7 @@ var CompanyList = React.createClass({
       <div>
         <CompanyNav
           toggle={this.props.handleArchivedStatus}
+          archivedStatus={this.props.archivedStatus}
         />
         {companyList}
       </div>
