@@ -16,7 +16,6 @@ var Companies = React.createClass({
   },
 
   handleArchivedStatus(archivedStatus) {
-    console.log(archivedStatus);
     this.setState({archivedStatus: archivedStatus});
   },
 
