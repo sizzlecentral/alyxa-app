@@ -5,16 +5,21 @@ var NewCompany= React.createClass({
       name:     "",
       url:      "",
       image:    "",
-      editable: false
+      openForm: false,
     };
   },
 
-  makeEditable() {
-    this.setState({editable: true})
+  openForm() {
+    this.setState({openForm: true})
   },
 
-  unMakeEditable() {
-    this.setState({editable: false})
+  closeForm() {
+    this.setState({
+      name:     "",
+      url:      "",
+      image:    "",
+      openForm: false,
+    })
   },
 
   handleCompanySubmit(e) {
@@ -33,7 +38,7 @@ var NewCompany= React.createClass({
       image: image
     });
 
-    this.unMakeEditable();
+    this.closeForm();
 
   },
 
@@ -45,9 +50,9 @@ var NewCompany= React.createClass({
 
   render() {
 
-    if (this.state.editable === false) {
+    if (this.state.openForm === false) {
       return (
-        <button id='new' onClick={this.makeEditable}>Add a Company</button>
+        <button id='new' onClick={this.openForm}>Add a Company</button>
       )
     } else {
       return (
@@ -78,7 +83,7 @@ var NewCompany= React.createClass({
           <button id='submit' type='submit' value='Submit'>Submit</button>
           <br />
           <br />
-          <center><a onClick={this.unMakeEditable}>Cancel</a></center>
+          <center><a onClick={this.closeForm}>Cancel</a></center>
 
         </form>
       )
