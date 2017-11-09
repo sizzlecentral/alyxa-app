@@ -136,6 +136,7 @@ var GlobalModal = React.createClass({
     if (this.props.archived != 'true') {
 
       if (this.state.editable === false) {
+
         return (
           <div id='global-modal-box'>
             {this.modalGuts()}
@@ -148,18 +149,22 @@ var GlobalModal = React.createClass({
               >Archive
             </button>
           </div>
-        );
+        )
+
       } else {
+
         return (
           <div id='global-modal-box'>
             {this.editForm()}
           </div>
-        );
+        )
+
       }
 
     } else {
 
       if (this.state.editable === false) {
+
         return (
           <div id='global-modal-box'>
             {this.modalGuts()}
@@ -172,7 +177,8 @@ var GlobalModal = React.createClass({
               >Un-Archive
             </button>
           </div>
-        );
+        )
+
       }
     }
 

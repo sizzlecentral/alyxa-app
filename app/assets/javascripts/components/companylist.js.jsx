@@ -13,11 +13,14 @@ var CompanyList = React.createClass({
       if (status === 'current') {
 
         if (company.archived === 'true') {
+
           return (
             <div id='hidden-div' key={company.id}>
             </div>
           )
+
         } else {
+
           return (
             <div id='company-wrapper' key={company.id}>
               <Company
@@ -30,11 +33,13 @@ var CompanyList = React.createClass({
               />
             </div>
           )
+
         }
 
       } else if (status === 'archived') {
 
         if (company.archived === 'true') {
+
           return (
             <div id='company-wrapper' key={company.id}>
               <Company
@@ -49,10 +54,12 @@ var CompanyList = React.createClass({
           )
 
         } else {
+
           return (
             <div id='hidden-div' key={company.id}>
             </div>
           )
+
         }
 
       } else {
@@ -69,6 +76,7 @@ var CompanyList = React.createClass({
             />
           </div>
         )
+
       }
 
     });

@@ -32,7 +32,7 @@ var Company = React.createClass({
             <button id='view' value={this.props.id} onClick={this.sendCompanyId}>View Details</button>
           </div>
         </div>
-      );
+      )
 
     } else {
 
@@ -50,7 +50,7 @@ var Company = React.createClass({
             <button id='view-archive' value={this.props.id} onClick={this.sendCompanyId}>View Details</button>
           </div>
         </div>
-      );
+      )
 
     }
 

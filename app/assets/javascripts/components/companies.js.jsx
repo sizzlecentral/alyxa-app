@@ -93,6 +93,24 @@ var Companies = React.createClass({
     });
   },
 
+  newAndList() {
+    return (
+      <div id='company-list'>
+        <NewCompany
+          onCompanySubmit={this.handleCompanySubmit}
+          archivedStatus={this.state.archivedStatus}
+          handleArchivedStatus={this.handleArchivedStatus}
+        />
+        <CompanyList
+          data={this.state.data}
+          showCompany={this.showCompany}
+          archivedStatus={this.state.archivedStatus}
+          handleArchivedStatus={this.handleArchivedStatus}
+        />
+      </div>
+    )
+  },
+
   render() {
 
     if (this.state.showModal === true) {
@@ -135,19 +153,7 @@ var Companies = React.createClass({
             />
           </div>
 
-          <div id='company-list'>
-            <NewCompany
-              onCompanySubmit={this.handleCompanySubmit}
-              archivedStatus={this.state.archivedStatus}
-              handleArchivedStatus={this.handleArchivedStatus}
-            />
-            <CompanyList
-              data={this.state.data}
-              showCompany={this.showCompany}
-              archivedStatus={this.state.archivedStatus}
-              handleArchivedStatus={this.handleArchivedStatus}
-            />
-          </div>
+          {this.newAndList()}
 
           <div id='footer'>
             <Footer />
@@ -165,19 +171,7 @@ var Companies = React.createClass({
             <Header />
           </div>
 
-          <div id='company-list'>
-            <NewCompany
-              onCompanySubmit={this.handleCompanySubmit}
-              archivedStatus={this.state.archivedStatus}
-              handleArchivedStatus={this.handleArchivedStatus}
-            />
-            <CompanyList
-              data={this.state.data}
-              showCompany={this.showCompany}
-              archivedStatus={this.state.archivedStatus}
-              handleArchivedStatus={this.handleArchivedStatus}
-            />
-          </div>
+          {this.newAndList()}
 
           <div id='footer'>
             <Footer />
