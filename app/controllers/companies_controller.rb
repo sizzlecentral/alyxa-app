@@ -1,7 +1,11 @@
 class CompaniesController < ApplicationController
 
   def index
-    @companies = Company.all.as_json
+    @companies = Company.all
+    @sorted_array = @companies.sort_by do |company|
+      company.created_at
+    end
+    @sorted_json = @sorted_array.as_json
   end
 
   def create
